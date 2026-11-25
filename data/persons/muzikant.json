@@ -1,0 +1,21 @@
+{
+  "id": "muzikant",
+  "name": "Стоян",
+  "role": "музикант",
+  "color": [
+    220,
+    180,
+    40
+  ],
+  "start": [
+    21,
+    5
+  ],
+  "age": 30,
+  "traits": [],
+  "likes": {
+    "food": "",
+    "music": "",
+    "hobby": ""
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "floor": {
+    "layer": "floor",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "wall": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "door": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "table": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "bar": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "barrel": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "bed": {
+    "layer": "object",
+    "w": 1,
+    "h": 2,
+    "solid": true
+  },
+  "bench": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": false
+  },
+  "cash": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "cauldron": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "chair_down": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "chair_right": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "chair_up": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "chest": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "counter_pass": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "cutting_board": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "ferment_barrel": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "fireplace": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "menu_board": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "mill": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "oven": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "press": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "shelf": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "sink": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "stage": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": false
+  },
+  "still": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "stove": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "table_big": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": true
+  },
+  "window": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "walls_0_0": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      0,
+      0
+    ]
+  },
+  "walls_0_1": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      1,
+      0
+    ]
+  },
+  "walls_0_2": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      2,
+      0
+    ]
+  },
+  "walls_0_3": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      3,
+      0
+    ]
+  },
+  "walls_1_0": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      0,
+      1
+    ]
+  },
+  "walls_1_1": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      1,
+      1
+    ]
+  },
+  "walls_1_2": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      2,
+      1
+    ]
+  },
+  "walls_1_3": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      3,
+      1
+    ]
+  },
+  "walls_2_0": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      0,
+      2
+    ]
+  },
+  "walls_2_1": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      1,
+      2
+    ]
+  },
+  "walls_2_2": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      2,
+      2
+    ]
+  },
+  "walls_2_3": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true,
+    "sheet": "walls",
+    "cell": [
+      3,
+      2
+    ]
+  },
+  "table_right": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  }
+}

@@ -1,0 +1,11 @@
+# Временни и генерирани файлове - не ги качваме в GitHub
+__pycache__/
+*.pyc
+_to_delete/
+Claude outputs/
+venv/
+.venv/
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store

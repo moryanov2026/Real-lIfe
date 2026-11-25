@@ -1,0 +1,21 @@
+{
+  "id": "servitior",
+  "name": "Иван",
+  "role": "сервитьор",
+  "color": [
+    60,
+    120,
+    200
+  ],
+  "start": [
+    10,
+    3
+  ],
+  "age": 30,
+  "traits": [],
+  "likes": {
+    "food": "",
+    "music": "",
+    "hobby": ""
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bg"><head><meta charset="utf-8"><title>Real Life - Лист за художника</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:820px;margin:20px auto;color:#222;line-height:1.4}
+h1{margin-bottom:0} .sub{color:#666;margin-top:2px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th,td{border:1px solid #999;padding:6px 8px;text-align:left;font-size:14px}
+th{background:#eee} .box{border:2px solid #333;padding:10px 14px;margin:12px 0;border-radius:6px}
+.rules li{margin:4px 0} @media print{.noprint{display:none}body{margin:8mm}}
+</style></head><body>
+<h1>Real Life: Лист за художника</h1>
+<p class="sub">Рисуваме героите и предметите на нашата игра. Всичко е <b>ТВОЕ, оригинално</b>: не копираме герои от други игри и аниме.</p>
+
+<div class="box"><b>Къде рисуваме:</b> безплатно в браузъра на <b>https://www.piskelapp.com/p/create/sprite/</b> (отваря направо празен спрайт).<br>
+Първо избери размера от таблицата (Resize), после рисувай. Накрая: <b>Export → PNG</b>.</div>
+
+<table>
+<tr><th>Какво рисуваш</th><th>Размер (пиксели)</th><th>Колко цвята</th><th>Как го поставяш</th></tr>
+<tr><td>Герой / клиент / член на семейство</td><td><b>64 × 64</b></td><td>до 12</td><td>краката са на долния ръб</td></tr>
+<tr><td>Под (плочка)</td><td><b>64 × 64</b></td><td>до 6</td><td>пълни цялата картинка</td></tr>
+<tr><td>Стена (цяла)</td><td><b>64 × 96</b></td><td>до 8</td><td>горните 32 = горен ръб, долните 64 = лице</td></tr>
+<tr><td>Части от стена (тайлсет)</td><td><b>квадратчета 64 × 64</b> в един лист</td><td>до 8</td><td>ъгли, ръб, лице – всяко в свое квадратче</td></tr>
+<tr><td>Врата, прозорец</td><td><b>64 × 96</b></td><td>до 8</td><td>долен ръб</td></tr>
+<tr><td>Маса, стол, бъчва, колибка</td><td><b>64 × 64</b></td><td>до 10</td><td>долен ръб</td></tr>
+<tr><td>Голяма маса</td><td><b>128 × 64</b></td><td>до 10</td><td>долен ръб</td></tr>
+<tr><td>Голямо легло</td><td><b>64 × 128</b></td><td>до 10</td><td>долен ръб</td></tr>
+<tr><td>Парче тезгях (бар)</td><td><b>64 × 64</b></td><td>до 10</td><td>парчетата се редят едно до друго</td></tr>
+<tr><td>Малък предмет в ръка (чаша, чиния)</td><td><b>32 × 32</b></td><td>до 6</td><td>центриран</td></tr>
+<tr><td>Икона за меню</td><td><b>64 × 64</b></td><td>до 8</td><td>центриран</td></tr>
+<tr><td>Сграда отвън</td><td>192×192, 256×256 или 320×256</td><td>до 12</td><td>вратата в нея е 64×96</td></tr>
+</table>
+
+<h3>Правила за рисуване</h3>
+<ul class="rules">
+<li>Тъмен контур <b>1-2 пиксела</b> около героя или предмета.</li>
+<li>Светлината идва <b>от горе вляво</b>: светлите места са горе вляво, сенките долу вдясно.</li>
+<li><b>Без сянка</b> под краката: играта я рисува сама.</li>
+<li>Фонът е <b>прозрачен</b> (не го оцветявай).</li>
+<li>Без плавни преливания, само плоски цветове.</li>
+<li>Оставяй 4-8 пиксела празно по краищата на героя.</li>
+</ul>
+
+<h3>Анимация на ходене (за хора)</h3>
+<p>24 кадъра по 64×64: кадри 1–8 вървиш към нас, 9–16 с гръб, 17–24 надясно. Изнасяне: Export → PNG → <b>Spritesheet</b>, Columns = 8 (излиза 512×192). Име: <code>&lt;персона&gt;_walk.png</code> в <code>assets\persons</code>.</p>
+
+<h3>Име на файла</h3>
+<p>Само <b>малки латински букви</b>, без интервали: <code>table_big.png</code>, <code>cup.png</code>.<br>Хората (персоните) се кръщават с номера на персоната, напр. <code>krachmar.png</code>, <code>baba_stana.png</code>, и отиват в папка <code>assets\persons</code>.</p>
+
+<h3>Къде слагам картинката</h3>
+<p>Пълният списък с всичко, което трябва да се нарисува, е в <b>KARTINKI.html</b> (колона „Файл“ показва точното име и папка). Докато не нарисуваш своята, играта показва временна. Твоята я замества сама.</p>
+
+<h3>Моята картинка</h3>
+<table>
+<tr><td>Име на файла:</td><td>&nbsp;</td></tr>
+<tr><td>Размер:</td><td>&nbsp;</td></tr>
+<tr><td>Какво е (една дума):</td><td>&nbsp;</td></tr>
+<tr><td>Кой я нарисува:</td><td>&nbsp;</td></tr>
+<tr><td>Цена в играта (ако е предмет):</td><td>&nbsp;</td></tr>
+</table>
+<p class="noprint"><i>Печат: Ctrl+P.</i></p>
+</body></html>
