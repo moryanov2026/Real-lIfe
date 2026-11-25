@@ -2,8 +2,8 @@
 # Пускане от папката "Real Life":   python tools/pixelart/make_baba.py
 # Резултат:
 #   assets/persons/baba_stana.png        - отпред, неподвижна (64x64)
-#   assets/persons/baba_stana_walk.png   - ходене: ред 1 надолу, ред 2 нагоре, ред 3 надясно (512x192)
-#   art_src/baba_stana_walk.piskel       - проект за Piskel с всичките 24 кадъра
+#   assets/persons/baba_stana_walk.png   - ходене: ред 1 надолу, 2 нагоре, 3 надясно, 4 наляво (512x256)
+#   art_src/baba_stana_walk.piskel       - проект за Piskel с всичките 32 кадъра
 #   art_src/baba_stana_preview.png       - уголемен преглед на зелен фон
 # Идея за учениците: копирайте baba.py като нов файл и сменете цветовете, косата, дрехите...
 import base64
@@ -47,23 +47,25 @@ def главна():
     pygame.display.set_mode((1, 1))
     надолу = [baba.front(i) for i in range(8)]
     нагоре = [baba.front(i, True) for i in range(8)]
-    надясно = [baba.side(i) for i in range(8)]
+    надясно = [baba.side(i, cane_near=False) for i in range(8)]
+    # наляво = огледало на рисунка с бастуна в близката ръка -> пак е в дясната ѝ ръка
+    наляво = [[ред[::-1] for ред in baba.side(i, cane_near=True)] for i in range(8)]
     os.makedirs(os.path.join(ИГРА, "assets", "persons"), exist_ok=True)
     os.makedirs(os.path.join(ИГРА, "art_src"), exist_ok=True)
     pygame.image.save(към_повърхност(надолу[0]), os.path.join(ИГРА, "assets", "persons", "baba_stana.png"))
-    pygame.image.save(лист([надолу, нагоре, надясно]), os.path.join(ИГРА, "assets", "persons", "baba_stana_walk.png"))
-    pygame.image.save(лист([надолу, надясно, нагоре], 3, (58, 140, 62)), os.path.join(ИГРА, "art_src", "baba_stana_preview.png"))
-    # .piskel: всички 24 кадъра в една лента
+    pygame.image.save(лист([надолу, нагоре, надясно, наляво]), os.path.join(ИГРА, "assets", "persons", "baba_stana_walk.png"))
+    pygame.image.save(лист([надолу, нагоре, надясно, наляво], 3, (58, 140, 62)), os.path.join(ИГРА, "art_src", "baba_stana_preview.png"))
+    # .piskel: всички 32 кадъра в една лента
     временен = os.path.join(ИГРА, "art_src", "_strip.png")
-    pygame.image.save(лист([надолу + нагоре + надясно]), временен)
+    pygame.image.save(лист([надолу + нагоре + надясно + наляво]), временен)
     with open(временен, "rb") as f:
         данни = f.read()
     os.replace(временен, os.path.join(ИГРА, "art_src", "baba_stana_walk_strip.png"))
-    слой = {"name": "Layer 1", "opacity": 1, "frameCount": 24,
-            "chunks": [{"layout": [[k] for k in range(24)],
+    слой = {"name": "Layer 1", "opacity": 1, "frameCount": 32,
+            "chunks": [{"layout": [[k] for k in range(32)],
                         "base64PNG": "data:image/png;base64," + base64.b64encode(данни).decode()}]}
     проект = {"modelVersion": 2, "piskel": {"name": "baba_stana_walk",
-              "description": "Real Life - баба Стана ходи: кадри 1-8 надолу, 9-16 нагоре, 17-24 надясно",
+              "description": "Real Life - баба Стана ходи: кадри 1-8 надолу, 9-16 нагоре, 17-24 надясно, 25-32 наляво",
               "fps": 8, "height": 64, "width": 64, "layers": [json.dumps(слой)], "hiddenFrames": []}}
     with open(os.path.join(ИГРА, "art_src", "baba_stana_walk.piskel"), "w", encoding="utf-8") as f:
         json.dump(проект, f)

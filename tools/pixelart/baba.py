@@ -13,12 +13,14 @@ APRON=M('#e06a55','#c4463a','#9a352d','#6e2320')
 STOCK=M('#b0a090','#8e7e6e','#6c5e52','#4a4038')
 SHOE=M('#5a4636','#433226','#33251c','#221710')
 CANE=M('#d09a5c','#ad7440','#87552e','#5e3a1e')
-OUT=hx('#1e1410'); GLASS=hx('#8fb4c8'); BLUSH=hx('#e8907a'); EYE=hx('#2a1d16')
+OUT=hx('#1e1410'); FRAME=hx('#6e4a30'); MOUTH=hx('#8c4a3e'); LENS=hx('#d6ecf4'); GLASS=hx('#8fb4c8'); BLUSH=hx('#e8907a'); EYE=hx('#2a1d16')
 
 def rot(p,ang,L):
     a=math.radians(ang); return (p[0]+L*math.sin(a), p[1]+L*math.cos(a))
 
-def side(i):
+def side(i, cane_near=True):
+    """cane_near=True: бастунът е в близката ръка (за посока наляво след огледало),
+    False: в далечната ръка (посока надясно). Така бастунът е винаги в дясната ѝ ръка."""
     t=2*math.pi*i/8
     cv=Canvas()
     TH,SH=9.0,10.0
@@ -31,13 +33,25 @@ def side(i):
     hipY=59.5-max(ank)                            # най-ниското стъпало стои на земята
     by=hipY-40.5
     hip=(30.5,hipY)
+    def cane_arm(sh,z,ex):
+        hand=(41.5+1.2*math.sin(t+math.pi),37.5+by)
+        elb=((sh[0]+hand[0])/2+0.5,(sh[1]+hand[1])/2+2)
+        capsule(cv,sh,elb,2.4,2.1,CARD,z,extra=ex)
+        capsule(cv,elb,hand,2.0,1.7,CARD,z,extra=ex)
+        tip=(hand[0]+1.5+2.5*math.sin(t+math.pi),61.5)
+        capsule(cv,(hand[0]+0.5,hand[1]-1),tip,1.0,1.0,CANE,z+0.5)
+        capsule(cv,(hand[0]-2,hand[1]-2.5),(hand[0]+1,hand[1]-2.8),1.0,1.0,CANE,z+0.6)
+        ellipse(cv,hand[0]+0.5,hand[1],2.0,2.0,SKIN,z+1,extra=ex)
+    def swing_arm(sh,z,ex,sgn):
+        fa=-14*math.sin(t)*sgn
+        el=rot(sh,fa,6); hd=rot(el,fa+20,6)
+        capsule(cv,sh,el,2.2,2.0,CARD,z,extra=ex)
+        capsule(cv,el,hd,1.9,1.6,CARD,z,extra=ex)
+        ellipse(cv,hd[0],hd[1]+1,1.8,1.8,SKIN,z+0.1,extra=ex+0.05)
     # --- далечна ръка (зад тялото)
     sh_far=(30,27+by)
-    fa=-14*math.sin(t)
-    el=rot(sh_far,fa,6); hd=rot(el,fa+20,6)
-    capsule(cv,sh_far,el,2.2,2.0,CARD,1,extra=-0.35)
-    capsule(cv,el,hd,1.9,1.6,CARD,1,extra=-0.35)
-    ellipse(cv,hd[0],hd[1]+1,1.8,1.8,SKIN,1.1,extra=-0.3)
+    if cane_near: swing_arm(sh_far,1,-0.35,1)
+    else:         cane_arm((31,27+by),0.5,-0.3)
     # --- крака
     for k,(a,b) in enumerate(legs):
         z=2 if k==0 else 3; ex=-0.35 if k==0 else 0
@@ -57,7 +71,7 @@ def side(i):
     poly(cv,ap,APRON,4.5,extra=0.1)
     # --- торс (прегърбен) и гърбица
     capsule(cv,(29.5,30+by),(31,36+by),6.4,6.6,CARD,5)
-    ellipse(cv,27.5,29+by,4.2,4.5,CARD,5.1)
+    ellipse(cv,28.2,29.6+by,3.5,3.8,CARD,5.1)
     for yy in range(int(28+by),int(37+by)):              # копчета по ръба
         pass
     # --- врат и глава
@@ -67,28 +81,23 @@ def side(i):
     # коса: отгоре и отзад
     ellipse(cv,hc[0]-0.8,hc[1]-1.0,7.4,7.2,HAIR,6.5,mask=lambda x,y:(y<hc[1]-3) or (x<hc[0]-2 and y<hc[1]+4))
     ellipse(cv,hc[0]-8.0,hc[1]-4.5,3.6,3.4,HAIR,6.4)      # кок
-    # --- близка ръка с бастуна
+    # --- близка ръка
     sh=(33,28+by)
-    hand=(41.5+1.2*math.sin(t+math.pi),37.5+by)
-    elb=((sh[0]+hand[0])/2+0.5,(sh[1]+hand[1])/2+2)
-    capsule(cv,sh,elb,2.4,2.1,CARD,7)
-    capsule(cv,elb,hand,2.0,1.7,CARD,7)
-    # бастун: дръжка-кука и пръчка до земята
-    tip=(hand[0]+1.5+2.5*math.sin(t+math.pi),61.5)
-    capsule(cv,(hand[0]+0.5,hand[1]-1),tip,1.0,1.0,CANE,7.5)
-    capsule(cv,(hand[0]-2,hand[1]-2.5),(hand[0]+1,hand[1]-2.8),1.0,1.0,CANE,7.6)
-    ellipse(cv,hand[0]+0.5,hand[1],2.0,2.0,SKIN,8)
+    if cane_near: cane_arm(sh,7,0)
+    else:         swing_arm(sh,7,0,-1)
     # --- лице
     cv.plot(int(hc[0]+7),int(hc[1]+0.5),SKIN[1],9,999)      # нос
     cv.plot(int(hc[0]+7),int(hc[1]+1.5),SKIN[2],9,999)
     ex,ey=int(hc[0]+3.5),int(hc[1]-0.5)
     for (x,y) in [(ex-1,ey),(ex,ey-1),(ex+1,ey-1),(ex+2,ey),(ex+1,ey+1),(ex,ey+1)]:
-        cv.plot(x,y,GLASS,9,998)
-    cv.plot(ex,ey,EYE,9,997); cv.plot(ex+1,ey,hx('#c8e0ec'),9,997)
-    for x in range(ex-5,ex-1): cv.plot(x,ey,GLASS,9,998)          # дръжка на очилата
-    cv.plot(ex,ey-3,HAIR[2],9,993); cv.plot(ex+1,ey-3,HAIR[2],9,993)  # вежда
+        cv.plot(x,y,FRAME,9,998)
+    cv.plot(ex,ey,EYE,9,997); cv.plot(ex+1,ey,LENS,9,997)
+    for x in range(ex-5,ex-1): cv.plot(x,ey,FRAME,9,998)          # дръжка на очилата
+    cv.plot(ex,ey-3,HAIR[3],9,993); cv.plot(ex+1,ey-3,HAIR[3],9,993)  # вежда
+    cv.plot(ex+2,ey+2,SKIN[2],9,993)                                  # бръчка до окото
     cv.plot(ex,ey+3,BLUSH,9,996); cv.plot(ex+1,ey+3,BLUSH,9,996)
-    cv.plot(ex+2,ey+5,SKIN[3],9,995); cv.plot(ex+3,ey+5,SKIN[3],9,995)  # уста
+    cv.plot(ex+2,ey+5,MOUTH,9,995); cv.plot(ex+3,ey+5,MOUTH,9,995)    # уста
+    cv.plot(ex+1,ey+4,SKIN[2],9,994)                                  # бръчка до устата
     cv.plot(int(hc[0]-1),int(hc[1]+1),SKIN[2],9,994)        # ухо
     cv.plot(int(hc[0]-1),int(hc[1]+2),SKIN[3],9,994)
     return finish(cv,OUT)
@@ -106,7 +115,7 @@ def front(i, back=False):
     # --- пола
     sw=0.8*math.sin(t)
     w0=36+by; w1=51+by
-    skirt=[(23.5,w0),(40.5,w0),(44+sw,w1-1),(43+sw,w1),(21+sw,w1),(20+sw,w1-1)]
+    skirt=[(25,w0),(39,w0),(42.5+sw,w1-1),(41.5+sw,w1),(22.5+sw,w1),(21.5+sw,w1-1)]
     folds=((lambda y:27-0.18*(y-w0)+sw*(y-w0)/15,0.5),(lambda y:32+sw*(y-w0)/15,0.35),(lambda y:37+0.18*(y-w0)+sw*(y-w0)/15,0.5))
     poly(cv,skirt,SKIRT,4,folds=folds)
     if not back:
@@ -134,30 +143,44 @@ def front(i, back=False):
         capsule(cv,el,hand,2.1,1.8,CARD,z)
         if side_==cane_side:
             tipx=hand[0]+1.0*math.sin(t)
-            capsule(cv,(hand[0],hand[1]-1),(tipx,61.5),1.0,1.0,CANE,6.5 if not back else 3)
-            capsule(cv,(hand[0]-1.5*side_,hand[1]-3),(hand[0]+0.5*side_,hand[1]-3.2),1.0,1.0,CANE,6.6 if not back else 3)
+            zc=6.5 if not back else 3
+            capsule(cv,(hand[0],hand[1]-3.5),(tipx,61.5),1.0,1.0,CANE,zc)
+            # дръжка-кука над ръката, извита към тялото
+            capsule(cv,(hand[0],hand[1]-3.8),(hand[0]-2.6*side_,hand[1]-3.8),1.0,1.0,CANE,7.0 if not back else 6.9)
+            capsule(cv,(hand[0]-2.6*side_,hand[1]-3.8),(hand[0]-2.8*side_,hand[1]-2.2),0.9,0.9,CANE,7.0 if not back else 6.9)
         ellipse(cv,hand[0],hand[1]+0.6,1.9,1.9,SKIN,6.8,extra=-0.1)
     # --- глава
     hc=(32,18.5+by)
     if not back:
         poly(cv,[(29.5,25.5+by),(34.5,25.5+by),(32,28.5+by)],SKIN,5.8,extra=-0.2)   # шия/деколте
         ellipse(cv,hc[0],hc[1],7.3,7.6,SKIN,6)
-        ellipse(cv,hc[0],hc[1]-0.8,7.6,7.4,HAIR,6.5,mask=lambda x,y:(y<hc[1]-2.5) or ((x<hc[0]-5 or x>hc[0]+4) and y<hc[1]+3))
-        ellipse(cv,hc[0],hc[1]-7.0,2.8,2.2,HAIR,6.4)               # кокът се подава отгоре
-        cv.plot(31,int(hc[1]-5),HAIR[2],9,990); cv.plot(32,int(hc[1]-4),HAIR[2],9,990)   # път
+        # коса, прибрана назад: открито чело, бухнала над слепоочията
+        ellipse(cv,hc[0],hc[1]-0.8,7.7,7.4,HAIR,6.5,mask=lambda x,y:(y<hc[1]-3.5) or ((x<hc[0]-5.5 or x>hc[0]+4.5) and y<hc[1]+1))
+        ellipse(cv,hc[0],hc[1]-8.6,4.6,3.2,HAIR,6.4,extra=0.15)    # кокът се подава отгоре
+        for y in range(int(hc[1]-7),int(hc[1]-4)): cv.plot(31,y,HAIR[2],9,990)   # път по средата
+        cv.plot(27,int(hc[1]-5),HAIR[2],9,990); cv.plot(36,int(hc[1]-5),HAIR[2],9,990)  # кичури
         ey=int(hc[1]+0.5)
         for ex in (28,34):
-            for (x,y) in [(ex-1,ey),(ex,ey-1),(ex+1,ey-1),(ex+2,ey),(ex+1,ey+1),(ex,ey+1)]: cv.plot(x,y,GLASS,9,998)
-            cv.plot(ex,ey,EYE,9,997); cv.plot(ex+1,ey,hx('#c8e0ec'),9,997)
-            cv.plot(ex,ey-3,HAIR[2],9,993); cv.plot(ex+1,ey-3,HAIR[2],9,993)
-        cv.plot(31,ey,GLASS,9,998); cv.plot(32,ey,GLASS,9,998)
-        cv.plot(31,ey+2,SKIN[2],9,996); cv.plot(32,ey+3,SKIN[2],9,996)     # нос
-        for x in (30,31,32,33): cv.plot(x,ey+5,SKIN[3],9,995)              # уста
+            for (x,y) in [(ex-1,ey),(ex,ey-1),(ex+1,ey-1),(ex+2,ey),(ex+1,ey+1),(ex,ey+1)]: cv.plot(x,y,FRAME,9,998)
+            cv.plot(ex,ey,EYE,9,997); cv.plot(ex+1,ey,LENS,9,997)
+            cv.plot(ex,ey-3,HAIR[3],9,993); cv.plot(ex+1,ey-3,HAIR[3],9,993)
+        cv.plot(31,ey,FRAME,9,998); cv.plot(32,ey,FRAME,9,998)
+        cv.plot(31,ey+2,SKIN[2],9,996); cv.plot(32,ey+2,SKIN[2],9,996)     # нос
+        for x in (30,31,32,33): cv.plot(x,ey+5,MOUTH,9,995)                # уста
+        cv.plot(29,ey+4,SKIN[2],9,995); cv.plot(34,ey+4,SKIN[2],9,995)     # бръчки до устата
         cv.plot(27,ey+3,BLUSH,9,994); cv.plot(36,ey+3,BLUSH,9,994)
         cv.plot(31,int(31+by),CARD[0],9,992); cv.plot(31,int(34+by),CARD[0],9,992)   # копчета
     else:
         ellipse(cv,hc[0],hc[1],7.3,7.6,SKIN,6)
         ellipse(cv,hc[0],hc[1]-0.5,7.6,7.6,HAIR,6.5,mask=lambda x,y:y<hc[1]+5)
-        ellipse(cv,hc[0],hc[1]-2.5,3.3,3.1,HAIR,7.2,extra=0.3,pid=950)       # кок
-        for y in range(int(hc[1]+1),int(hc[1]+5)): cv.plot(int(hc[0]),y,HAIR[2],9,990)
+        # кичури, сресани надолу към кока на тила
+        for (x0,x1) in ((hc[0]-5,hc[0]-2.5),(hc[0]+4,hc[0]+1.5),(hc[0]-1,hc[0]-0.5)):
+            for k in range(4):
+                y=hc[1]-6+k*1.6
+                cv.plot(int(x0+(x1-x0)*k/3),int(y),HAIR[2],9,990)
+        ellipse(cv,hc[0]-0.3,hc[1]+1.6,3.6,2.9,HAIR,7.2,extra=0.35,pid=951)  # кок на тила (без контур)
+        for x in range(int(hc[0]-3),int(hc[0]+3)):                          # сянка под кока
+            cv.plot(x,int(hc[1]+4.6),HAIR[3],9,989)
+        cv.plot(int(hc[0]-4),int(hc[1]+3.6),HAIR[3],9,989); cv.plot(int(hc[0]+3),int(hc[1]+3.6),HAIR[3],9,989)
+        cv.plot(int(hc[0]-1),int(hc[1]+0.5),HAIR[2],9,989); cv.plot(int(hc[0]),int(hc[1]+1.5),HAIR[2],9,989)  # навиване
     return finish(cv,OUT)
