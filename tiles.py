@@ -3,10 +3,15 @@
 import glob
 import json
 import os
+import sys
 
 import pygame
 
-ПАПКА = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, "frozen", False):
+    # Играта е .exe (build.bat): data/ и assets/ са до RealLife.exe, за да могат учениците да ги сменят
+    ПАПКА = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    ПАПКА = os.path.dirname(os.path.abspath(__file__))
 ПЪТ_ПЛОЧКИ = os.path.join(ПАПКА, "data", "tiles.json")
 ПАПКА_КАРТИНКИ = os.path.join(ПАПКА, "assets")
 # Тайлсет = една голяма картинка с много квадратчета 64x64 (напр. всички части на стената).

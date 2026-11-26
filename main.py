@@ -472,7 +472,47 @@ class Прозорец:
         return (int((позиция[0] - self.отместване[0]) / self.мащаб), int((позиция[1] - self.отместване[1]) / self.мащаб))
 
 
+def самопроверка():
+    """python main.py --selftest (или RealLife.exe --selftest): играе сама за няколко секунди
+    и записва selftest.txt до играта. Ползва го build.bat, за да провери готовия .exe."""
+    import traceback
+    изход = os.path.join(tiles.ПАПКА, "selftest.txt")
+    try:
+        pygame.init()
+        pygame.display.set_mode((960, 540))
+        игра = Игра(pygame.font.SysFont("arial", 20), pygame.font.SysFont("arial", 14),
+                    pygame.font.SysFont("arial", 40, bold=True))
+        игра.играй_сам()
+        def чакай(условие):
+            край = time.time() + 5
+            while not условие() and time.time() < край:
+                игра.обработи_мрежата()
+                time.sleep(0.05)
+            assert условие()
+        чакай(lambda: игра.екран_вид == "избор")
+        игра.избери("muzikant")
+        чакай(lambda: игра.екран_вид == "игра")
+        екран = pygame.Surface((1024, 576))
+        игра.нарисувай(екран, False, 60)
+        игра.клавиш(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_e, mod=0))
+        assert игра.свирене and игра.свирене.списък, "няма песни"
+        игра.свирене.клавиш(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RETURN, mod=0))
+        игра.свирене.обнови()
+        игра.свирене.нарисувай(pygame.Surface((960, 540)))
+        песни = len(игра.свирене.списък)
+        игра.прекъсни()
+        with open(изход, "w", encoding="utf-8") as f:
+            f.write("OK: играта, сървърът, картинките и минииграта работят (%d песни)\n" % песни)
+        return 0
+    except Exception:
+        with open(изход, "w", encoding="utf-8") as f:
+            f.write("ГРЕШКА:\n" + traceback.format_exc())
+        return 1
+
+
 def главна():
+    if "--selftest" in sys.argv:
+        sys.exit(самопроверка())
     покажи_fps = "--fps" in sys.argv
     pygame.init()
     pygame.display.set_caption("Real Life")

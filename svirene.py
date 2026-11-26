@@ -20,7 +20,8 @@ import random
 
 import pygame
 
-ПАПКА = os.path.dirname(os.path.abspath(__file__))
+import tiles
+ПАПКА = tiles.ПАПКА                 # папката на играта (работи и когато играта е .exe)
 ПАПКА_ПЕСНИ = os.path.join(ПАПКА, "data", "songs")
 ПАПКА_МУЗИКА = os.path.join(ПАПКА, "assets", "music")
 ШИР, ВИС = 960, 540
