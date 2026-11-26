@@ -1474,7 +1474,8 @@
    180,
    40
   ],
-  "where": "data/persons/muzikant.json"
+  "where": "data/persons/muzikant.json",
+  "artist": "Claude"
  },
  {
   "file": "persons/baba_stana.png",
@@ -1550,5 +1551,144 @@
    170
   ],
   "where": "data/persons/patnik_niki.json"
+ },
+ {
+  "file": "music/kaval.png",
+  "size": [
+   192,
+   432
+  ],
+  "kind": "object",
+  "name_bg": "Кавал - голям, отстрани на екрана в минииграта Свирене (платно 960x540)",
+  "color": [
+   176,
+   116,
+   64
+  ],
+  "where": "rules/krachma.md 10а",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/muzikant_walk.png",
+  "size": [
+   512,
+   256
+  ],
+  "kind": "sheet",
+  "name_bg": "Стоян (музикант) – ходене, 8 кадъра × 4 посоки (надолу, нагоре, надясно, наляво)",
+  "color": [
+   220,
+   180,
+   40
+  ],
+  "where": "data/persons/muzikant.json",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/muzikant_play.png",
+  "size": [
+   128,
+   64
+  ],
+  "kind": "sheet",
+  "name_bg": "Стоян свири на кавал, 2 кадъра (поза отпред)",
+  "color": [
+   220,
+   180,
+   40
+  ],
+  "where": "rules/krachma.md 10а",
+  "artist": "Claude"
+ },
+ {
+  "file": "music/muzikant_golyam.png",
+  "size": [
+   192,
+   192
+  ],
+  "kind": "object",
+  "name_bg": "Голям Стоян в минииграта Свирене (може и 192×288)",
+  "color": [
+   220,
+   180,
+   40
+  ],
+  "where": "rules/krachma.md 10а",
+  "artist": "Claude"
+ },
+ {
+  "file": "music/fon_svirene.png",
+  "size": [
+   960,
+   540
+  ],
+  "kind": "object",
+  "name_bg": "Фон на минииграта Свирене (сцената в кръчмата, по-тъмна)",
+  "color": [
+   70,
+   46,
+   34
+  ],
+  "where": "rules/krachma.md 10а"
+ },
+ {
+  "file": "music/grif_kaval.png",
+  "size": [
+   224,
+   64
+  ],
+  "kind": "object",
+  "name_bg": "Гриф за кавала (3 ленти): парче, което се повтаря и тече надолу",
+  "color": [
+   44,
+   28,
+   18
+  ],
+  "where": "rules/krachma.md 10а"
+ },
+ {
+  "file": "music/nota_0.png",
+  "size": [
+   64,
+   32
+  ],
+  "kind": "object",
+  "name_bg": "Нота в 1-ва лента (червена, клавиш D)",
+  "color": [
+   214,
+   58,
+   46
+  ],
+  "where": "rules/krachma.md 10а"
+ },
+ {
+  "file": "music/nota_1.png",
+  "size": [
+   64,
+   32
+  ],
+  "kind": "object",
+  "name_bg": "Нота във 2-ра лента (жълта, клавиш F)",
+  "color": [
+   236,
+   184,
+   52
+  ],
+  "where": "rules/krachma.md 10а"
+ },
+ {
+  "file": "music/nota_2.png",
+  "size": [
+   64,
+   32
+  ],
+  "kind": "object",
+  "name_bg": "Нота в 3-та лента (зелена, клавиш J)",
+  "color": [
+   72,
+   168,
+   88
+  ],
+  "where": "rules/krachma.md 10а"
  }
 ]

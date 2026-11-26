@@ -49,6 +49,15 @@ if errorlevel 1 (
   exit /b 1
 )
 
+REM 3b) Za pesen.bat (pesni ot zapis za minigrata Svirene): librosa i ffmpeg.
+REM Ne sa nuzhni na samata igra, zatova ako ne stanat, igrata pak raboti.
+echo.
+echo Instaliram librosa i ffmpeg za pesen.bat ^(moje da otneme nyakolko minuti^)...
+%PY% -m pip install --prefer-binary librosa imageio-ffmpeg
+if errorlevel 1 (
+  echo VNIMANIE: librosa ne se instalira. Igrata raboti, no pesen.bat - ne.
+)
+
 REM 4) Proverka dali vsichko raboti (test bez prozorec)
 echo.
 echo Pravya proverka...
