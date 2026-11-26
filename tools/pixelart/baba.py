@@ -184,3 +184,61 @@ def front(i, back=False):
         cv.plot(int(hc[0]-4),int(hc[1]+3.6),HAIR[3],9,989); cv.plot(int(hc[0]+3),int(hc[1]+3.6),HAIR[3],9,989)
         cv.plot(int(hc[0]-1),int(hc[1]+0.5),HAIR[2],9,989); cv.plot(int(hc[0]),int(hc[1]+1.5),HAIR[2],9,989)  # навиване
     return finish(cv,OUT)
+
+
+def dance(i):
+    """Хоро: 8 кадъра отпред. Краката се вдигат на ред, бастунът е вдигнат и се размахва,
+    другата ръка е протегната встрани (държи съседа), очите са затворени от радост."""
+    t=2*math.pi*i/8
+    cv=Canvas()
+    вдигане=[0,3,5,3,0,0,0,0]
+    by=[1,0,0,0,1,0,0,0][i]
+    lift=[вдигане[i], вдигане[(i+4)%8]]
+    # --- крака (вдигнатият е свит в коляното, стъпалото малко навън)
+    for k,x in enumerate((28.5,35.5)):
+        ay=59.0-lift[k]
+        навън=(-1 if k==0 else 1)*lift[k]*0.3
+        capsule(cv,(x,46+by),(x+навън,ay),2.4,1.9,STOCK,2,extra=(-0.15 if k else 0))
+        ellipse(cv,x+навън+(-0.3 if k==0 else 0.3),ay+1.6,2.7,1.8,SHOE,2.2)
+    # --- пола: люлее се в ритъма
+    sw=1.4*math.sin(t)
+    w0=36+by; w1=51+by
+    poly(cv,[(24.5,w0),(39.5,w0),(43+sw,w1-1),(42+sw,w1),(22+sw,w1),(21+sw,w1-1)],SKIRT,4,
+         folds=((lambda y:28-0.15*(y-w0)+sw*(y-w0)/15,0.5),(lambda y:32+sw*(y-w0)/15,0.35),(lambda y:36+0.15*(y-w0)+sw*(y-w0)/15,0.5)))
+    poly(cv,[(28,w0+1),(36,w0+1),(37.5+sw,w1-2),(26.5+sw,w1-2)],APRON,4.5,extra=0.1,
+         folds=((lambda y:32+sw*(y-w0)/15,0.4),))
+    # --- торс
+    capsule(cv,(32,29.5+by),(32,36+by),7.6,8.0,CARD,5)
+    cv.plot(31,int(31+by),CARD[0],9,992); cv.plot(31,int(34+by),CARD[0],9,992)
+    # --- дясната ѝ ръка (вляво на екрана): вдигнат бастун, който се размахва
+    маха=2.0*math.sin(t)
+    sh=(24.8,28.5+by); el=(19.5,23+by); hand=(18.5+маха,16.5+by)
+    capsule(cv,sh,el,2.5,2.2,CARD,6)
+    capsule(cv,el,hand,2.1,1.8,CARD,6)
+    capsule(cv,(hand[0]+1.0,hand[1]+7),(hand[0]-2.5-маха*0.6,hand[1]-9),1.0,1.0,CANE,6.5)
+    capsule(cv,(hand[0]-2.5-маха*0.6,hand[1]-9),(hand[0]+0.3-маха*0.6,hand[1]-10.5),1.0,1.0,CANE,6.6)   # куката горе
+    ellipse(cv,hand[0],hand[1]+0.6,1.9,1.9,SKIN,6.8,extra=-0.1)
+    # --- лявата ѝ ръка (вдясно на екрана): протегната встрани, държи съседа
+    sh=(39.2,28.5+by); el=(44,31.5+by); hand=(48.5,31+by-0.6*math.sin(t))
+    capsule(cv,sh,el,2.5,2.2,CARD,6)
+    capsule(cv,el,hand,2.1,1.8,CARD,6)
+    ellipse(cv,hand[0]+0.4,hand[1]+0.2,1.9,1.9,SKIN,6.8,extra=-0.1)
+    # --- глава: усмихната, очите затворени от радост
+    hc=(32,18.5+by)
+    poly(cv,[(29.5,25.5+by),(34.5,25.5+by),(32,28.5+by)],SKIN,5.8,extra=-0.2)
+    ellipse(cv,hc[0],hc[1],7.3,7.6,SKIN,6)
+    ellipse(cv,hc[0],hc[1]-0.8,7.7,7.4,HAIR,6.5,mask=lambda x,y:(y<hc[1]-3.5) or ((x<hc[0]-5.5 or x>hc[0]+4.5) and y<hc[1]+1))
+    ellipse(cv,hc[0],hc[1]-8.6,4.6,3.2,HAIR,6.4,extra=0.15)
+    for y in range(int(hc[1]-7),int(hc[1]-4)): cv.plot(31,y,HAIR[2],9,990)
+    ey=int(hc[1]+0.5)
+    for ex in (28,34):
+        for (x,y) in [(ex-1,ey),(ex,ey-1),(ex+1,ey-1),(ex+2,ey),(ex+1,ey+1),(ex,ey+1)]: cv.plot(x,y,FRAME,9,998)
+        cv.plot(ex,ey,EYE,9,997); cv.plot(ex+1,ey,EYE,9,997)          # затворени очи (дъгички)
+        cv.plot(ex,ey-3,HAIR[3],9,993); cv.plot(ex+1,ey-3,HAIR[3],9,993)
+    cv.plot(31,ey,FRAME,9,998); cv.plot(32,ey,FRAME,9,998)
+    cv.plot(31,ey+2,SKIN[2],9,996); cv.plot(32,ey+2,SKIN[2],9,996)
+    for x in (30,31,32,33): cv.plot(x,ey+4,MOUTH,9,995)              # широка усмивка
+    cv.plot(31,ey+5,hx('#5a2a24'),9,995); cv.plot(32,ey+5,hx('#5a2a24'),9,995)
+    cv.plot(29,ey+3,MOUTH,9,995); cv.plot(34,ey+3,MOUTH,9,995)
+    cv.plot(27,ey+3,BLUSH,9,994); cv.plot(36,ey+3,BLUSH,9,994); cv.plot(27,ey+2,BLUSH,9,994); cv.plot(36,ey+2,BLUSH,9,994)
+    return finish(cv,OUT)

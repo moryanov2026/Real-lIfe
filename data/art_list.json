@@ -1690,5 +1690,21 @@
    88
   ],
   "where": "rules/krachma.md 10а"
+ },
+ {
+  "file": "persons/baba_stana_dance.png",
+  "size": [
+   512,
+   64
+  ],
+  "kind": "sheet",
+  "name_bg": "баба Стана играе хоро: 8 кадъра отпред (бастунът вдигнат, другата ръка държи съседа)",
+  "color": [
+   180,
+   100,
+   140
+  ],
+  "where": "rules/krachma.md 10а",
+  "artist": "Claude"
  }
 ]

@@ -169,6 +169,8 @@ class Сървър:
             self.свят.вход(номер, с.get("dx", 0), с.get("dy", 0))
         elif т == "leave_person":
             self.свят.освободи(номер)
+        elif т == "mood":                       # миниигра "Свирене": колко добре свири (за хорото)
+            self.свят.ново_настроение(номер, с.get("mood", 0))
         elif т == "play":                       # миниигра "Свирене": начало / край на песен
             бакшиш = self.свят.свирене(номер, с.get("on"), с.get("result"))
             if not с.get("on") and isinstance(с.get("result"), dict):
