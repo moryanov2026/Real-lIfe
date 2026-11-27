@@ -102,6 +102,7 @@ class Игра:
         self.каталог = []                    # [(име, цена, [варианти])] от data/furniture.json
         self.кам = (0, 0)
         self.известие = None                 # (текст, до кога) - напр. бакшиш след песен
+        self.музика_npc = None               # (кой, песен), която чуваме от NPC музиканта
 
     # ---------- свързване ----------
     def играй_сам(self):
@@ -176,6 +177,8 @@ class Игра:
                 self.карта = с["map"]
             elif т == "build_result":
                 self.известие = (с.get("text", ""), time.perf_counter() + (2.0 if с.get("ok") else 3.0))
+            elif т == "order_result":           # E при музиканта: засвири / спря / причина
+                self.известие = (с.get("text", ""), time.perf_counter() + 3)
             elif т == "tip":
                 self.известие = ("Песента: %d %%  -  бакшиш +%d" % (round(с.get("percent", 0)), с.get("amount", 0)),
                                  time.perf_counter() + 5)
@@ -367,6 +370,11 @@ class Игра:
         if аз and self.моя_роля() == "музикант":
             н = self.шрифт.render("E = свири на кавала    F = седни", True, (255, 230, 150))
             екран.blit(н, (ш - н.get_width() - 12, в - 30))
+        м = self._музикант_до_мен(рисувани, аз)
+        if м and not self.строене:
+            текст = ("E = кажи на %s да спре" if м.get("song") else "E = кажи на %s да свири") % м["name"]
+            н = self.шрифт.render(текст, True, (255, 230, 150))
+            екран.blit(н, (ш - н.get_width() - 12, в - 56))
         if self.строене:
             self._нарисувай_строене(екран, кам_x, кам_y, ш, в)
         if self.известие and time.perf_counter() < self.известие[1]:
@@ -440,6 +448,9 @@ class Игра:
                 self.връзка.прати({"t": "sit"})
         elif self.екран_вид == "игра" and к == pygame.K_e and self.моя_роля() == "музикант":
             self.започни_свирене()
+        elif self.екран_вид == "игра" and к == pygame.K_e and self.моя_роля() in self._поръчват():
+            if self.връзка:
+                self.връзка.прати({"t": "order_song"})   # кажи на музиканта да свири / да спре
         return True
 
     # ---------- режим за строене (B) ----------
@@ -555,6 +566,59 @@ class Игра:
     # ---------- миниигра "Свирене" ----------
     def моя_роля(self):
         return self.описания.get(self.мое_id, {}).get("role", "")
+
+    def _поръчват(self):
+        import world
+        return world.ПОРЪЧВАТ_МУЗИКА
+
+    def _музикант_до_мен(self, рисувани, аз):
+        """NPC музикантът, ако е близо до мен и аз мога да му поръчам песен."""
+        import world
+        if not аз or self.моя_роля() not in world.ПОРЪЧВАТ_МУЗИКА:
+            return None
+        for п in рисувани:
+            if (п.get("role") == "музикант" and п.get("ctrl") == "npc"
+                    and ((п["x"] - аз["x"]) ** 2 + (п["y"] - аз["y"]) ** 2) ** 0.5 <= world.ДО_МУЗИКАНТА):
+                return п
+        return None
+
+    def обнови_музика_npc(self):
+        """Пуска (или спира) песента, която свири NPC музикантът. По-тихо, когато сме далеч."""
+        if self.свирене:                     # аз свиря в минииграта: тя си пуска музиката
+            self.музика_npc = None
+            return
+        import world
+        аз = self.персони.get(self.мое_id) if self.екран_вид == "игра" else None
+        най, разст = None, 1e9
+        if аз:
+            for п in self.персони.values():
+                if п.get("song"):
+                    р = ((п["до_x"] - аз["до_x"]) ** 2 + (п["до_y"] - аз["до_y"]) ** 2) ** 0.5
+                    if р < разст:
+                        най, разст = п, р
+        чува = най is not None and разст < 14 * tiles.ПЛОЧКА
+        try:
+            if not pygame.mixer.get_init():
+                if not чува:
+                    return
+                pygame.mixer.init(22050, -16, 1, 512)
+            if not чува:
+                if self.музика_npc:
+                    pygame.mixer.music.fadeout(800)
+                    self.музика_npc = None
+                return
+            ключ = (най["id"], най["song"])
+            if ключ != self.музика_npc:
+                път = os.path.join(world.ПАПКА_МУЗИКА, най["song"] + ".ogg")
+                self.музика_npc = ключ
+                if not os.path.exists(път):
+                    return                       # песен без запис: само се вижда, че свири
+                pygame.mixer.music.load(път)
+                pygame.mixer.music.play(start=max(0.0, float(най.get("song_t", 0))))
+            сила = 1.0 - max(0.0, разст - 4 * tiles.ПЛОЧКА) / (10 * tiles.ПЛОЧКА)
+            pygame.mixer.music.set_volume(max(0.15, min(1.0, сила)))
+        except pygame.error:
+            self.музика_npc = None               # няма звукова карта: играта продължава без звук
 
     def започни_свирене(self):
         import svirene
@@ -732,6 +796,7 @@ def главна():
         dy = (к[pygame.K_s] or к[pygame.K_DOWN]) - (к[pygame.K_w] or к[pygame.K_UP])
         игра.изпрати_вход(dx, dy, сега)
         игра.обнови_свирене()
+        игра.обнови_музика_npc()
         if игра.свирене:
             екран = прозорец.подготви("свирене")
             игра.свирене.нарисувай(екран)
