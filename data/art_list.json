@@ -1389,7 +1389,8 @@
    60,
    140
   ],
-  "where": "data/persons/sobstvenik.json"
+  "where": "data/persons/sobstvenik.json",
+  "artist": "Claude"
  },
  {
   "file": "persons/krachmar.png",
@@ -1839,6 +1840,38 @@
   ],
   "where": "GAME_RULES 6",
   "solid": false,
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/sobstvenik_walk.png",
+  "size": [
+   512,
+   256
+  ],
+  "kind": "sheet",
+  "name_bg": "Димитър (собственик, 50 г., пълен, с мустаци) в носия с червен елек – ходене, 8 кадъра × 4 посоки",
+  "color": [
+   120,
+   60,
+   140
+  ],
+  "where": "data/persons/sobstvenik.json",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/sobstvenik_dance.png",
+  "size": [
+   512,
+   64
+  ],
+  "kind": "sheet",
+  "name_bg": "Димитър играе хоро: 8 кадъра отпред",
+  "color": [
+   120,
+   60,
+   140
+  ],
+  "where": "rules/krachma.md 10а",
   "artist": "Claude"
  }
 ]

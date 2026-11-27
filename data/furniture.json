@@ -7,7 +7,8 @@
     {
      "име": "Дълга маса",
      "варианти": [
-      "table_big"
+      "table_big",
+      "table_big_v"
      ],
      "цена": 60
     },
@@ -23,7 +24,9 @@
      "име": "Пейка",
      "варианти": [
       "bench",
-      "bench_up"
+      "bench_up",
+      "bench_right",
+      "bench_left"
      ],
      "цена": 20
     },
@@ -32,7 +35,8 @@
      "варианти": [
       "chair_down",
       "chair_right",
-      "chair_up"
+      "chair_up",
+      "chair_left"
      ],
      "цена": 12
     }

@@ -319,5 +319,32 @@
     "h": 1,
     "solid": false,
     "dy": -36
+  },
+  "table_big_v": {
+    "layer": "object",
+    "w": 1,
+    "h": 2,
+    "solid": true,
+    "sort_top": true
+  },
+  "chair_left": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "bench_right": {
+    "layer": "object",
+    "w": 1,
+    "h": 2,
+    "solid": false,
+    "sort_top": true
+  },
+  "bench_left": {
+    "layer": "object",
+    "w": 1,
+    "h": 2,
+    "solid": false,
+    "sort_top": true
   }
 }
