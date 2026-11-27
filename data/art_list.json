@@ -150,7 +150,8 @@
    55
   ],
   "where": "rules/krachma.md",
-  "solid": false
+  "solid": false,
+  "artist": "Claude"
  },
  {
   "file": "chair_up.png",
@@ -166,7 +167,8 @@
    55
   ],
   "where": "rules/krachma.md",
-  "solid": false
+  "solid": false,
+  "artist": "Claude"
  },
  {
   "file": "chair_right.png",
@@ -182,7 +184,8 @@
    55
   ],
   "where": "rules/krachma.md",
-  "solid": false
+  "solid": false,
+  "artist": "Claude"
  },
  {
   "file": "bar.png",
@@ -392,7 +395,8 @@
    100,
    60
   ],
-  "where": "rules/krachma.md"
+  "where": "rules/krachma.md",
+  "artist": "Claude"
  },
  {
   "file": "bench.png",
@@ -401,14 +405,15 @@
    64
   ],
   "kind": "furniture",
-  "name_bg": "Пейка",
+  "name_bg": "Пейка зад масата (седналите гледат към нас), без облегалка",
   "color": [
    140,
    95,
    55
   ],
   "where": "rules/krachma.md",
-  "solid": false
+  "solid": false,
+  "artist": "Claude"
  },
  {
   "file": "stage.png",
@@ -1429,22 +1434,24 @@
    120,
    200
   ],
-  "where": "data/persons/servitior.json"
+  "where": "data/persons/servitior.json",
+  "artist": "Claude"
  },
  {
-  "file": "persons/chistach.png",
+  "file": "persons/elena.png",
   "size": [
    64,
    64
   ],
   "kind": "person",
-  "name_bg": "Елена – чистач",
+  "name_bg": "Елена – гостенка в носия",
   "color": [
    90,
    170,
    90
   ],
-  "where": "data/persons/chistach.json"
+  "where": "data/persons/chistach.json",
+  "artist": "Claude"
  },
  {
   "file": "persons/snabditel.png",
@@ -1705,6 +1712,133 @@
    140
   ],
   "where": "rules/krachma.md 10а",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/servitior_walk.png",
+  "size": [
+   512,
+   256
+  ],
+  "kind": "sheet",
+  "name_bg": "Иван (сервитьор) в празнична носия – ходене, 8 кадъра × 4 посоки",
+  "color": [
+   60,
+   120,
+   200
+  ],
+  "where": "data/persons/servitior.json",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/servitior_dance.png",
+  "size": [
+   512,
+   64
+  ],
+  "kind": "sheet",
+  "name_bg": "Иван играе хоро: 8 кадъра отпред (двете ръце протегнати)",
+  "color": [
+   60,
+   120,
+   200
+  ],
+  "where": "rules/krachma.md 10а",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/elena_walk.png",
+  "size": [
+   512,
+   256
+  ],
+  "kind": "sheet",
+  "name_bg": "Елена в носия (зелен сукман, бродирана престилка, плитки) – ходене, 8 кадъра × 4 посоки",
+  "color": [
+   90,
+   170,
+   90
+  ],
+  "where": "data/persons/chistach.json",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/elena_dance.png",
+  "size": [
+   512,
+   64
+  ],
+  "kind": "sheet",
+  "name_bg": "Елена играе хоро: 8 кадъра отпред",
+  "color": [
+   90,
+   170,
+   90
+  ],
+  "where": "rules/krachma.md 10а",
+  "artist": "Claude"
+ },
+ {
+  "file": "persons/chistach.png",
+  "size": [
+   64,
+   64
+  ],
+  "kind": "person",
+  "name_bg": "Тодор – чистач",
+  "color": [
+   90,
+   170,
+   90
+  ],
+  "where": "data/persons/chistach.json"
+ },
+ {
+  "file": "persons/chistach_walk.png",
+  "size": [
+   512,
+   192
+  ],
+  "kind": "sheet",
+  "name_bg": "Тодор (чистач) – ходене, 8 кадъра × 3 посоки",
+  "color": [
+   90,
+   170,
+   90
+  ],
+  "where": "data/persons/chistach.json"
+ },
+ {
+  "file": "persons/baba_stana_sit.png",
+  "size": [
+   256,
+   192
+  ],
+  "kind": "sheet",
+  "name_bg": "баба Стана сяда: 3 реда (надолу, нагоре, надясно) × 4 кадъра (2 сяда, 2 седи)",
+  "color": [
+   180,
+   100,
+   140
+  ],
+  "where": "GAME_RULES 6",
+  "artist": "Claude"
+ },
+ {
+  "file": "bench_up.png",
+  "size": [
+   128,
+   64
+  ],
+  "kind": "object",
+  "name_bg": "Пейка пред масата (седналите са с гръб към нас); може да е същата като bench.png",
+  "color": [
+   176,
+   116,
+   61
+  ],
+  "where": "GAME_RULES 6",
+  "solid": false,
   "artist": "Claude"
  }
 ]

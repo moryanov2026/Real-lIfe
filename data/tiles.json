@@ -45,7 +45,8 @@
     "layer": "object",
     "w": 2,
     "h": 1,
-    "solid": false
+    "solid": false,
+    "dy": 30
   },
   "cash": {
     "layer": "object",
@@ -63,7 +64,8 @@
     "layer": "object",
     "w": 1,
     "h": 1,
-    "solid": false
+    "solid": false,
+    "dy": 14
   },
   "chair_right": {
     "layer": "object",
@@ -310,5 +312,12 @@
     "w": 1,
     "h": 1,
     "solid": true
+  },
+  "bench_up": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": false,
+    "dy": -36
   }
 }

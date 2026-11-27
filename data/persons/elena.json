@@ -1,0 +1,18 @@
+{
+  "id": "elena",
+  "name": "Елена",
+  "role": "жител (гостенка)",
+  "color": [
+    52,
+    168,
+    86
+  ],
+  "start": null,
+  "age": 22,
+  "traits": [],
+  "likes": {
+    "food": "",
+    "music": "",
+    "hobby": ""
+  }
+}

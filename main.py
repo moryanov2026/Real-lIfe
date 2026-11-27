@@ -5,8 +5,10 @@
 #        "Създай игра за класа" - този компютър е сървър, учениците влизат с неговия адрес
 #        "Влез в игра"          - въвеждаш адреса на сървъра (напр. 192.168.1.20)
 # В играта: WASD/стрелки = ходене, Esc = смени персона, F3 = кадри в секунда
-# Музикантът: E = свири (миниигра "Свирене", svirene.py)
+# Собственикът и кръчмарят: B = режим за строене (мебели с цени, разширяване на кръчмата).
+# Музикантът: E = свири (миниигра "Свирене", svirene.py).  F = седни на стол/пейка (пак F или тръгни = стани)
 # F11 или Alt+Enter = цял екран / прозорец. Прозорецът се разтяга с мишката.  python main.py --full = направо на цял екран
+import json
 import os
 import queue
 import socket
@@ -96,18 +98,21 @@ class Игра:
         self.бутони = []
         self.преобразувай_мишка = lambda п: п   # прозорецът го сменя (мащаб и отместване)
         self.свирене = None                  # миниигра "Свирене", когато музикантът свири
+        self.строене = None                  # режим за строене (B): {"индекс", "вариант", "отместване"}
+        self.каталог = []                    # [(име, цена, [варианти])] от data/furniture.json
+        self.кам = (0, 0)
         self.известие = None                 # (текст, до кога) - напр. бакшиш след песен
 
     # ---------- свързване ----------
     def играй_сам(self):
         import server
-        self.сървър = server.Сървър(хост="127.0.0.1", порт=0).старт()
+        self.сървър = server.Сървър(хост="127.0.0.1", порт=0, запис=server.ЗАПИС).старт()
         self.свържи("127.0.0.1", self.сървър.порт)
 
     def създай_за_класа(self):
         import server
         try:
-            self.сървър = server.Сървър(хост="0.0.0.0", порт=net.ПОРТ).старт()
+            self.сървър = server.Сървър(хост="0.0.0.0", порт=net.ПОРТ, запис=server.ЗАПИС).старт()
         except OSError:
             self.съобщение = "Порт %d е зает: може би вече има сървър на този компютър." % net.ПОРТ
             return
@@ -167,6 +172,10 @@ class Игра:
                 self.съобщение = ""
             elif т == "error":
                 self.съобщение = с.get("text", "Грешка")
+            elif т == "map":                     # някой построи нещо: новата кръчма
+                self.карта = с["map"]
+            elif т == "build_result":
+                self.известие = (с.get("text", ""), time.perf_counter() + (2.0 if с.get("ok") else 3.0))
             elif т == "tip":
                 self.известие = ("Песента: %d %%  -  бакшиш +%d" % (round(с.get("percent", 0)), с.get("amount", 0)),
                                  time.perf_counter() + 5)
@@ -175,6 +184,7 @@ class Игра:
                 self.екран_вид = "меню"
                 self.мое_id = None
                 self.съобщение = "Връзката със сървъра прекъсна."
+                return
 
     def _ново_състояние(self, с):
         сега = time.perf_counter()
@@ -183,6 +193,11 @@ class Игра:
             стар = self.персони.get(п["id"])
             нов = dict(self.описания.get(п["id"], {}))
             нов.update(п)
+            # кога е седнал (за анимацията на сядане)
+            if п.get("sit") and not (стар and стар.get("sit")):
+                нов["седна_в"] = time.perf_counter()
+            elif стар and п.get("sit"):
+                нов["седна_в"] = стар.get("седна_в", 0)
             # за изглаждане: тръгваме от там, където го рисуваме в момента
             if стар:
                 нов["от_x"], нов["от_y"] = self._позиция(стар, сега)
@@ -327,6 +342,7 @@ class Игра:
         if в_карта + 36 < в:
             кам_y = (в_карта - в) / 2
         кам_x, кам_y = int(кам_x), int(кам_y)
+        self.кам = (кам_x, кам_y)
         render.нарисувай_карта(екран, self.карта, self.плочки, self.картинки, кам_x, кам_y, рисувани)
         render.нарисувай_хоро(екран, рисувани, кам_x, кам_y, self.картинки)
         render.нарисувай_имена(екран, self.малък, рисувани, кам_x, кам_y, self.мое_id)
@@ -345,9 +361,14 @@ class Игра:
         if self.адрес_за_класа:
             н = self.шрифт.render("Адрес за учениците: %s" % self.адрес_за_класа, True, (255, 220, 60))
             екран.blit(н, (10, в - 30))
+        if аз and self.моя_роля() != "музикант":
+            н = self.малък.render("F = седни / стани", True, (230, 220, 200))
+            екран.blit(н, (ш - н.get_width() - 12, в - 26))
         if аз and self.моя_роля() == "музикант":
-            н = self.шрифт.render("E = свири на кавала", True, (255, 230, 150))
+            н = self.шрифт.render("E = свири на кавала    F = седни", True, (255, 230, 150))
             екран.blit(н, (ш - н.get_width() - 12, в - 30))
+        if self.строене:
+            self._нарисувай_строене(екран, кам_x, кам_y, ш, в)
         if self.известие and time.perf_counter() < self.известие[1]:
             н = self.голям.render(self.известие[0], True, (255, 230, 120))
             фон = pygame.Surface((н.get_width() + 24, н.get_height() + 12), pygame.SRCALPHA)
@@ -369,7 +390,14 @@ class Игра:
                     self.създай_за_класа()
                 elif действие == "влез":
                     self.влез()
+                elif isinstance(действие, tuple) and действие[0] == "мебел":
+                    self.строене.update(индекс=действие[1], вариант=0)
+                elif isinstance(действие, tuple) and действие[0] == "разшири" and self.връзка:
+                    self.връзка.прати({"t": "build", "op": "expand", "side": действие[1]})
                 return
+        if self.екран_вид == "игра" and self.строене and self.връзка and 40 < позиция[1] < self.строене.get("долу", 9999):
+            x, y = self._клетка(позиция)
+            self.връзка.прати({"t": "build", "op": "place", "name": self._избрана_мебел(), "x": x, "y": y})
 
     def текст(self, знаци):
         if self.екран_вид != "меню":
@@ -398,11 +426,131 @@ class Игра:
             self.прекъсни()
             self.екран_вид = "меню"
             self.адрес_за_класа = ""
+        elif self.екран_вид == "игра" and self.строене and к in (pygame.K_ESCAPE, pygame.K_b):
+            self.строене = None
+        elif self.екран_вид == "игра" and self.строене and к in (pygame.K_q, pygame.K_e):
+            варианти = self.каталог[self.строене["индекс"]][2]
+            self.строене["вариант"] = (self.строене["вариант"] + (1 if к == pygame.K_e else -1)) % len(варианти)
+        elif self.екран_вид == "игра" and к == pygame.K_b:
+            self.започни_строене()
         elif self.екран_вид == "игра" and к == pygame.K_ESCAPE:
             self.смени_персона()
+        elif self.екран_вид == "игра" and к == pygame.K_f:
+            if self.връзка:
+                self.връзка.прати({"t": "sit"})
         elif self.екран_вид == "игра" and к == pygame.K_e and self.моя_роля() == "музикант":
             self.започни_свирене()
         return True
+
+    # ---------- режим за строене (B) ----------
+    def започни_строене(self):
+        import world
+        if self.моя_роля() not in world.СТРОИТЕЛИ:
+            self.известие = ("Само собственикът и кръчмарят могат да строят", time.perf_counter() + 3)
+            return
+        if not self.каталог:
+            with open(world.ПЪТ_КАТАЛОГ, encoding="utf-8") as f:
+                д = json.load(f)
+            self.каталог = [(м["име"], м["цена"], [в for в in м["варианти"] if в in self.плочки])
+                            for р in д["раздели"] for м in р["мебели"]]
+            self.каталог = [м for м in self.каталог if м[2]]
+            self.разширяване = д.get("разширяване", {})
+        self.строене = {"индекс": 0, "вариант": 0, "отместване": 0}
+
+    def _избрана_мебел(self):
+        м = self.каталог[self.строене["индекс"]]
+        return м[2][self.строене["вариант"] % len(м[2])]
+
+    def _клетка(self, позиция):
+        return (int((позиция[0] + self.кам[0]) // tiles.ПЛОЧКА), int((позиция[1] + self.кам[1]) // tiles.ПЛОЧКА))
+
+    def _предмет_в(self, x, y):
+        for о in reversed(self.карта["objects"]):
+            д = self.плочки.get(о["name"], {"w": 1, "h": 1})
+            if о["x"] <= x < о["x"] + д["w"] and о["y"] <= y < о["y"] + д["h"]:
+                return о
+        return None
+
+    def _може(self, име, x, y):
+        д = self.плочки[име]
+        for yy in range(y, y + д["h"]):
+            for xx in range(x, x + д["w"]):
+                if not (0 <= xx < self.карта["width"] and 0 <= yy < self.карта["height"]):
+                    return False
+                if not self.карта["floor"][yy][xx] or self._предмет_в(xx, yy):
+                    return False
+        return True
+
+    def колело(self, посока):
+        if self.строене:
+            self.строене["отместване"] = max(0, min(len(self.каталог) - 1, self.строене["отместване"] - посока))
+
+    def десен_клик(self, позиция):
+        if self.екран_вид == "игра" and self.строене and self.връзка:
+            x, y = self._клетка(позиция)
+            self.връзка.прати({"t": "build", "op": "remove", "x": x, "y": y})
+
+    def _нарисувай_строене(self, екран, кам_x, кам_y, ш, в):
+        П = tiles.ПЛОЧКА
+        мишка = self.преобразувай_мишка(pygame.mouse.get_pos())
+        долу = в - 100
+        self.строене["долу"] = долу
+        # мрежа върху пода
+        мрежа = pygame.Surface((ш, в), pygame.SRCALPHA)
+        for y in range(self.карта["height"]):
+            for x in range(self.карта["width"]):
+                if self.карта["floor"][y][x]:
+                    pygame.draw.rect(мрежа, (255, 255, 255, 40), (x * П - кам_x, y * П - кам_y, П, П), 1)
+        екран.blit(мрежа, (0, 0))
+        # призрак на избраната мебел под мишката
+        if мишка[1] < долу and мишка[1] > 40:
+            име = self._избрана_мебел()
+            x, y = self._клетка(мишка)
+            д = self.плочки[име]
+            може = self._може(име, x, y)
+            призрак = self.картинки[име].copy()
+            призрак.set_alpha(170)
+            tiles.нарисувай_плочка(екран, призрак, д, x, y, кам_x, кам_y)
+            цвят = (90, 230, 110, 90) if може else (240, 70, 60, 90)
+            рамка = pygame.Surface((д["w"] * П, д["h"] * П), pygame.SRCALPHA)
+            рамка.fill(цвят)
+            екран.blit(рамка, (x * П - кам_x, y * П - кам_y))
+            pygame.draw.rect(екран, цвят[:3], (x * П - кам_x, y * П - кам_y, д["w"] * П, д["h"] * П), 2)
+        # каталог долу
+        pygame.draw.rect(екран, (28, 22, 20), (0, долу, ш, 100))
+        pygame.draw.line(екран, (200, 150, 70), (0, долу), (ш, долу), 2)
+        x = 10
+        for и in range(self.строене["отместване"], len(self.каталог)):
+            if x + 84 > ш:
+                break
+            име, цена, варианти = self.каталог[и]
+            кутия = pygame.Rect(x, долу + 8, 84, 84)
+            избрана = и == self.строене["индекс"]
+            pygame.draw.rect(екран, (110, 80, 40) if избрана else (52, 42, 36), кутия, border_radius=6)
+            pygame.draw.rect(екран, (255, 220, 120) if избрана else (20, 14, 10), кутия, 2, border_radius=6)
+            к = self.картинки[варианти[self.строене["вариант"] % len(варианти)] if избрана else варианти[0]]
+            мащаб = min(68 / к.get_width(), 48 / к.get_height())
+            малка = pygame.transform.scale(к, (max(1, int(к.get_width() * мащаб)), max(1, int(к.get_height() * мащаб))))
+            екран.blit(малка, малка.get_rect(center=(кутия.centerx, кутия.y + 28)))
+            екран.blit(self.малък.render(име[:12], True, (240, 230, 210)), (кутия.x + 4, кутия.y + 52))
+            екран.blit(self.малък.render("%d пари" % цена, True, (255, 210, 90)), (кутия.x + 4, кутия.y + 67))
+            self.бутони.append((кутия, ("мебел", и)))
+            x += 92
+        # разширяване
+        цена = self.разширяване.get("цена", 200)
+        for и, (текст, страна) in enumerate((("Разшири надясно", "right"), ("Разшири надолу", "down"))):
+            r = pygame.Rect(ш - 230, 44 + и * 40, 220, 34)
+            pygame.draw.rect(екран, (70, 55, 45) if not r.collidepoint(мишка) else (110, 80, 55), r, border_radius=6)
+            pygame.draw.rect(екран, (25, 20, 30), r, 2, border_radius=6)
+            н = self.малък.render("%s  (%d)" % (текст, цена), True, ЦВЯТ_ТЕКСТ)
+            екран.blit(н, н.get_rect(center=r.center))
+            self.бутони.append((r, ("разшири", страна)))
+        подсказка = "СТРОЕНЕ: клик = купи и сложи   десен бутон = вдигни (връща парите)   Q/E = завърти   колелце = още   B = изход"
+        н = self.малък.render(подсказка, True, (255, 230, 150))
+        фон = pygame.Surface((н.get_width() + 12, н.get_height() + 6), pygame.SRCALPHA)
+        фон.fill((0, 0, 0, 170))
+        екран.blit(фон, (6, долу - 28))
+        екран.blit(н, (12, долу - 25))
 
     # ---------- миниигра "Свирене" ----------
     def моя_роля(self):
@@ -574,6 +722,10 @@ def главна():
                 игра.свирене.клавиш(с)
             elif с.type == pygame.MOUSEBUTTONDOWN and с.button == 1:
                 игра.клик(прозорец.мишка(с.pos))
+            elif с.type == pygame.MOUSEBUTTONDOWN and с.button == 3:
+                игра.десен_клик(прозорец.мишка(с.pos))
+            elif с.type == pygame.MOUSEWHEEL:
+                игра.колело(с.y)
         игра.обработи_мрежата()
         к = pygame.key.get_pressed()
         dx = (к[pygame.K_d] or к[pygame.K_RIGHT]) - (к[pygame.K_a] or к[pygame.K_LEFT])

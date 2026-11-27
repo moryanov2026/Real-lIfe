@@ -55,6 +55,9 @@ def главна():
     os.makedirs(os.path.join(ИГРА, "art_src"), exist_ok=True)
     pygame.image.save(към_повърхност(надолу[0]), os.path.join(ИГРА, "assets", "persons", "baba_stana.png"))
     pygame.image.save(лист([надолу, нагоре, надясно, наляво]), os.path.join(ИГРА, "assets", "persons", "baba_stana_walk.png"))
+    седи = [[baba.sit(посока, к) for к in range(4)] for посока in ("down", "up", "right")]   # сядане: 256x192
+    pygame.image.save(лист(седи), os.path.join(ИГРА, "assets", "persons", "baba_stana_sit.png"))
+    pygame.image.save(лист(седи, 3, (58, 140, 62)), os.path.join(ИГРА, "art_src", "baba_stana_sit_preview.png"))
     хоро = [baba.dance(i) for i in range(8)]                 # танцува хоро: 8 кадъра (512x64)
     pygame.image.save(лист([хоро]), os.path.join(ИГРА, "assets", "persons", "baba_stana_dance.png"))
     pygame.image.save(лист([хоро], 3, (58, 140, 62)), os.path.join(ИГРА, "art_src", "baba_stana_dance_preview.png"))

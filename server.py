@@ -11,6 +11,7 @@ import time
 
 os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 import net
+import tiles
 import world
 
 ТИКОВЕ_В_СЕКУНДА = 20            # колко пъти в секунда се смята светът и се праща на клиентите
@@ -62,9 +63,16 @@ class Пощальон:
                 return
 
 
+ЗАПИС = os.path.normpath(os.path.join(os.path.dirname(world.ПЪТ_КАРТА), "..", "saves", "krachma.json"))   # построеното в режим B
+
+
 class Сървър:
     def __init__(self, хост="0.0.0.0", порт=net.ПОРТ, път_карта=world.ПЪТ_КАРТА,
-                 папка_персони=world.ПАПКА_ПЕРСОНИ):
+                 папка_персони=world.ПАПКА_ПЕРСОНИ, запис=None):
+        # запис = файл, в който се пази построеното (режим B); ако го има, кръчмата се зарежда от него
+        self.запис = запис
+        if запис and os.path.exists(запис):
+            път_карта = запис
         self.свят = world.Свят(път_карта, папка_персони)
         self.слушател = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.слушател.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -169,6 +177,16 @@ class Сървър:
             self.свят.вход(номер, с.get("dx", 0), с.get("dy", 0))
         elif т == "leave_person":
             self.свят.освободи(номер)
+        elif т == "build":                      # режим за строене: сложи / вдигни / разшири
+            успех, текст = self.свят.строй(номер, с.get("op"), с.get("name"), с.get("x", 0), с.get("y", 0), с.get("side"))
+            self._прати(номер, {"t": "build_result", "ok": успех, "text": текст})
+            if успех:
+                self._до_всички_важно({"t": "map", "map": self.свят.карта})
+                if self.запис:
+                    os.makedirs(os.path.dirname(self.запис), exist_ok=True)
+                    tiles.запиши_карта(self.свят.карта, self.запис)
+        elif т == "sit":                        # F: седни / стани
+            self.свят.сядане(номер)
         elif т == "mood":                       # миниигра "Свирене": колко добре свири (за хорото)
             self.свят.ново_настроение(номер, с.get("mood", 0))
         elif т == "play":                       # миниигра "Свирене": начало / край на песен
@@ -186,6 +204,10 @@ class Сървър:
         for к in list(self.клиенти.values()):
             к["пощальон"].прати(данни, важно=False)
 
+    def _до_всички_важно(self, с):
+        for номер in list(self.клиенти):
+            self._прати(номер, с)
+
     def _махни(self, номер):
         к = self.клиенти.pop(номер, None)
         if к:
@@ -199,7 +221,7 @@ class Сървър:
 
 def главна():
     порт = int(sys.argv[1]) if len(sys.argv) > 1 else net.ПОРТ
-    сървър = Сървър(порт=порт).старт()
+    сървър = Сървър(порт=порт, запис=ЗАПИС).старт()
     print("=" * 50)
     print("  Real Life - сървърът работи")
     print("  Учениците въвеждат адрес:  %s" % net.мой_ip())
