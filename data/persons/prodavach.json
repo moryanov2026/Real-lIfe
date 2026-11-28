@@ -1,0 +1,11 @@
+{
+  "id": "prodavach",
+  "name": "Ваня",
+  "role": "продавач",
+  "color": [200, 90, 140],
+  "start": [5, 2],
+  "map": "magazin",
+  "age": 40,
+  "traits": ["усмихната", "помни кой какво купува"],
+  "likes": {"food": "shopska", "music": "", "hobby": ""}
+}

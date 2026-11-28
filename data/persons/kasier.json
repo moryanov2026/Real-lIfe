@@ -1,0 +1,24 @@
+{
+  "id": "kasier",
+  "name": "Пламен",
+  "role": "касиер",
+  "color": [
+    80,
+    120,
+    200
+  ],
+  "start": [
+    7,
+    2
+  ],
+  "map": "magazin",
+  "age": 24,
+  "traits": [
+    "бърз със сметките"
+  ],
+  "likes": {
+    "food": "lyutenitsa",
+    "music": "",
+    "hobby": "футбол"
+  }
+}

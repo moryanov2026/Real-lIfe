@@ -1,2505 +1,2670 @@
 [
- {
-  "file": "floor.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "floor",
-  "name_bg": "Под от дъски",
-  "color": [
-   150,
-   110,
-   70
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "wall.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tall",
-  "name_bg": "Стена (цяла)",
-  "color": [
-   70,
-   70,
-   90
-  ],
-  "where": "GAME_RULES 6"
- },
- {
-  "file": "door.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tall",
-  "name_bg": "Врата",
-  "color": [
-   60,
-   120,
-   160
-  ],
-  "where": "rules/krachma.md",
-  "solid": false
- },
- {
-  "file": "window.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tall",
-  "name_bg": "Прозорец в стена",
-  "color": [
-   110,
-   140,
-   170
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "wall_top.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "part",
-  "name_bg": "Стена отгоре (странични и долни стени) - бесшевна във всички посоки",
-  "color": [
-   84,
-   74,
-   66
-  ],
-  "where": "GAME_RULES 6"
- },
- {
-  "file": "door_top.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "part",
-  "name_bg": "Вход в стена, гледан отгоре (праг, черга)",
-  "color": [
-   168,
-   116,
-   74
-  ],
-  "where": "GAME_RULES 6",
-  "solid": false
- },
- {
-  "file": "tilesets/walls.png",
-  "size": [
-   256,
-   192
-  ],
-  "kind": "tileset",
-  "name_bg": "Тайлсет стени: ъгли, горен ръб, лице (квадратчета 64×64)",
-  "color": [
-   90,
-   85,
-   100
-  ],
-  "where": "GAME_RULES 6"
- },
- {
-  "file": "table.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Маса",
-  "color": [
-   150,
-   100,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "table_right.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Маса (завъртяна, дъски по дължина)",
-  "color": [
-   150,
-   100,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "chair_down.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Стол (гледа към нас)",
-  "color": [
-   140,
-   90,
-   55
-  ],
-  "where": "rules/krachma.md",
-  "solid": false,
-  "artist": "Claude"
- },
- {
-  "file": "chair_up.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Стол (с гръб към нас)",
-  "color": [
-   140,
-   90,
-   55
-  ],
-  "where": "rules/krachma.md",
-  "solid": false,
-  "artist": "Claude"
- },
- {
-  "file": "chair_right.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Стол (гледа надясно)",
-  "color": [
-   140,
-   90,
-   55
-  ],
-  "where": "rules/krachma.md",
-  "solid": false,
-  "artist": "Claude"
- },
- {
-  "file": "bar.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Тезгях",
-  "color": [
-   110,
-   70,
-   45
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "barrel.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Бъчва с канелка",
-  "color": [
-   130,
-   85,
-   50
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "cash.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Каса",
-  "color": [
-   170,
-   150,
-   80
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "cutting_board.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Маса с дъска за рязане",
-  "color": [
-   190,
-   150,
-   100
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "stove.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Печка с гърне",
-  "color": [
-   80,
-   80,
-   85
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "cauldron.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Котел на огън",
-  "color": [
-   60,
-   60,
-   65
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "sink.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Каменно корито",
-  "color": [
-   150,
-   170,
-   180
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "chest.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Сандък",
-  "color": [
-   120,
-   80,
-   45
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "counter_pass.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Гише за кухнята",
-  "color": [
-   160,
-   120,
-   80
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "mill.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Мелница (ръчна)",
-  "color": [
-   150,
-   150,
-   140
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "press.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Преса за грозде/плодове",
-  "color": [
-   120,
-   90,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ferment_barrel.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Бъчва за ферментация",
-  "color": [
-   110,
-   75,
-   45
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "still.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Казан за ракия",
-  "color": [
-   190,
-   110,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "table_big.png",
-  "size": [
-   128,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Голяма маса",
-  "color": [
-   150,
-   100,
-   60
-  ],
-  "where": "rules/krachma.md",
-  "artist": "Claude"
- },
- {
-  "file": "bench.png",
-  "size": [
-   128,
-   64
-  ],
-  "kind": "furniture",
-  "name_bg": "Пейка зад масата (седналите гледат към нас), без облегалка",
-  "color": [
-   140,
-   95,
-   55
-  ],
-  "where": "rules/krachma.md",
-  "solid": false,
-  "artist": "Claude"
- },
- {
-  "file": "stage.png",
-  "size": [
-   128,
-   64
-  ],
-  "kind": "tile",
-  "name_bg": "Сцена с черга",
-  "color": [
-   120,
-   80,
-   50
-  ],
-  "where": "data/furniture.json",
-  "solid": false,
-  "artist": "Claude"
- },
- {
-  "file": "bed.png",
-  "size": [
-   64,
-   128
-  ],
-  "kind": "furniture",
-  "name_bg": "Легло (стая за нощуване)",
-  "color": [
-   170,
-   60,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "oven.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tall",
-  "name_bg": "Фурна",
-  "color": [
-   170,
-   90,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "fireplace.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tile",
-  "name_bg": "Огнище",
-  "color": [
-   120,
-   110,
-   105
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "shelf.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tile",
-  "name_bg": "Рафт с буркани",
-  "color": [
-   120,
-   85,
-   50
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "menu_board.png",
-  "size": [
-   64,
-   96
-  ],
-  "kind": "tile",
-  "name_bg": "Табло с меню",
-  "color": [
-   60,
-   50,
-   40
-  ],
-  "where": "data/furniture.json",
-  "artist": "Claude"
- },
- {
-  "file": "items/cup_empty.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чаша празна",
-  "color": [
-   200,
-   220,
-   230
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/cup_full.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чаша пълна",
-  "color": [
-   230,
-   200,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/cup_dirty.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чаша мръсна",
-  "color": [
-   150,
-   140,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/mug_beer.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Халба бира",
-  "color": [
-   220,
-   170,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/glass_wine.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чаша вино",
-  "color": [
-   150,
-   30,
-   50
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/glass_rakia.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чашка ракия",
-  "color": [
-   230,
-   220,
-   190
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/plate_clean.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чиния чиста",
-  "color": [
-   235,
-   235,
-   230
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/plate_dirty.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чиния мръсна",
-  "color": [
-   160,
-   150,
-   130
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/bowl_clean.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Купа чиста",
-  "color": [
-   230,
-   225,
-   210
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/bowl_dirty.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Купа мръсна",
-  "color": [
-   160,
-   145,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/bread.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Хляб",
-  "color": [
-   200,
-   150,
-   80
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/cheese.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Сирене",
-  "color": [
-   245,
-   245,
-   230
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/eggs.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Яйца",
-  "color": [
-   240,
-   230,
-   200
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/beans.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Боб",
-  "color": [
-   200,
-   180,
-   150
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/onion.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Лук",
-  "color": [
-   220,
-   180,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/carrot.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Морков",
-  "color": [
-   240,
-   130,
-   40
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/potato.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Картоф",
-  "color": [
-   190,
-   150,
-   90
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/flour.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Брашно",
-  "color": [
-   245,
-   240,
-   225
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/milk.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Мляко",
-  "color": [
-   250,
-   250,
-   250
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/yogurt.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Кисело мляко",
-  "color": [
-   245,
-   245,
-   240
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/tomato.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Домат",
-  "color": [
-   220,
-   50,
-   40
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/cucumber.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Краставица",
-  "color": [
-   70,
-   150,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/pepper.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Чушка",
-  "color": [
-   200,
-   40,
-   40
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/spices.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Подправки",
-  "color": [
-   120,
-   150,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/butter.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Масло",
-  "color": [
-   250,
-   230,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/oil.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Олио",
-  "color": [
-   230,
-   200,
-   80
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/salt.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Сол",
-  "color": [
-   240,
-   240,
-   240
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/firewood.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Дърва",
-  "color": [
-   130,
-   90,
-   50
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/malt.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Малц",
-  "color": [
-   210,
-   170,
-   90
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/hops.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Хмел",
-  "color": [
-   120,
-   180,
-   80
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/grapes.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Грозде",
-  "color": [
-   110,
-   60,
-   140
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/fruit.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Плодове",
-  "color": [
-   230,
-   120,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/herbs.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Билки",
-  "color": [
-   90,
-   160,
-   90
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/strings.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Струни",
-  "color": [
-   200,
-   200,
-   200
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/tip_hat.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Шапка за бакшиш",
-  "color": [
-   90,
-   70,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/dish_bean_soup.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Боб чорба (купа)",
-  "color": [
-   180,
-   110,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/dish_eggs.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Пържени яйца",
-  "color": [
-   250,
-   220,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/dish_bread_cheese.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Филия със сирене",
-  "color": [
-   230,
-   200,
-   150
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/dish_potatoes.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Печени картофи",
-  "color": [
-   220,
-   170,
-   80
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/dish_banitsa.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Баница",
-  "color": [
-   230,
-   190,
-   110
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/dish_salad.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Шопска салата",
-  "color": [
-   210,
-   80,
-   70
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/drink_ayran.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Айрян",
-  "color": [
-   245,
-   245,
-   245
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/drink_tea.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Билков чай",
-  "color": [
-   170,
-   120,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/drink_lemonade.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Лимонада",
-  "color": [
-   250,
-   240,
-   120
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "items/drink_boza.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Боза",
-  "color": [
-   160,
-   110,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/inst_gadulka.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "icon",
-  "name_bg": "Икона: Гъдулка",
-  "color": [
-   150,
-   90,
-   50
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/inst_kaval.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "icon",
-  "name_bg": "Икона: Кавал",
-  "color": [
-   200,
-   160,
-   100
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/inst_gaida.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "icon",
-  "name_bg": "Икона: Гайда",
-  "color": [
-   230,
-   230,
-   220
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/inst_tambura.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "icon",
-  "name_bg": "Икона: Тамбура",
-  "color": [
-   170,
-   110,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/inst_accordion.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "icon",
-  "name_bg": "Икона: Акордеон",
-  "color": [
-   180,
-   40,
-   40
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/star_full.png",
-  "size": [
-   16,
-   16
-  ],
-  "kind": "icon",
-  "name_bg": "Звезда (качество) пълна",
-  "color": [
-   250,
-   210,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/star_empty.png",
-  "size": [
-   16,
-   16
-  ],
-  "kind": "icon",
-  "name_bg": "Звезда (качество) празна",
-  "color": [
-   90,
-   90,
-   90
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/note_lane1.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "note",
-  "name_bg": "Нота за лента 1 (мини игра Свирене)",
-  "color": [
-   220,
-   70,
-   70
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/note_lane2.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "note",
-  "name_bg": "Нота за лента 2 (мини игра Свирене)",
-  "color": [
-   70,
-   170,
-   220
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/note_lane3.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "note",
-  "name_bg": "Нота за лента 3 (мини игра Свирене)",
-  "color": [
-   90,
-   200,
-   90
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/note_lane4.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "note",
-  "name_bg": "Нота за лента 4 (мини игра Свирене)",
-  "color": [
-   230,
-   200,
-   60
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/note_lane5.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "note",
-  "name_bg": "Нота за лента 5 (мини игра Свирене)",
-  "color": [
-   180,
-   100,
-   220
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "ui/rhythm_bg.png",
-  "size": [
-   1024,
-   576
-  ],
-  "kind": "bg",
-  "name_bg": "Фон на мини играта Свирене",
-  "color": [
-   40,
-   30,
-   35
-  ],
-  "where": "rules/krachma.md"
- },
- {
-  "file": "persons/sobstvenik.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Димитър – собственик",
-  "color": [
-   120,
-   60,
-   140
-  ],
-  "where": "data/persons/sobstvenik.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/krachmar.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Петър – кръчмар",
-  "color": [
-   200,
-   80,
-   60
-  ],
-  "where": "data/persons/krachmar.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/gotvach.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Мария – готвачка",
-  "color": [
-   240,
-   240,
-   230
-  ],
-  "where": "data/persons/gotvach.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/servitior.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Иван – сервитьор",
-  "color": [
-   60,
-   120,
-   200
-  ],
-  "where": "data/persons/servitior.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/elena.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Елена – гостенка в носия",
-  "color": [
-   90,
-   170,
-   90
-  ],
-  "where": "data/persons/chistach.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/snabditel.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Георги – снабдител",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "where": "data/persons/snabditel.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/muzikant.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Стоян – музикант",
-  "color": [
-   220,
-   180,
-   40
-  ],
-  "where": "data/persons/muzikant.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/baba_stana.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "баба Стана – жител",
-  "color": [
-   180,
-   100,
-   140
-  ],
-  "where": "data/persons/baba_stana.json"
- },
- {
-  "file": "persons/baba_stana_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "баба Стана – ходене, 8 кадъра × 4 посоки (ред 1 надолу, 2 нагоре, 3 надясно, 4 наляво)",
-  "color": [
-   180,
-   100,
-   140
-  ],
-  "where": "data/persons/baba_stana.json"
- },
- {
-  "file": "persons/dyado_kole.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "дядо Коле",
-  "color": [
-   110,
-   110,
-   110
-  ],
-  "where": "data/persons/dyado_kole.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/lovets_boris.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Борис – ловец",
-  "color": [
-   70,
-   100,
-   50
-  ],
-  "where": "data/persons/lovets_boris.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/patnik_niki.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Ники – пътник",
-  "color": [
-   60,
-   160,
-   170
-  ],
-  "where": "data/persons/patnik_niki.json",
-  "artist": "Claude"
- },
- {
-  "file": "music/kaval.png",
-  "size": [
-   192,
-   432
-  ],
-  "kind": "object",
-  "name_bg": "Кавал - голям, отстрани на екрана в минииграта Свирене (платно 960x540)",
-  "color": [
-   176,
-   116,
-   64
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "persons/muzikant_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Стоян (музикант) – ходене, 8 кадъра × 4 посоки (надолу, нагоре, надясно, наляво)",
-  "color": [
-   220,
-   180,
-   40
-  ],
-  "where": "data/persons/muzikant.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/muzikant_play.png",
-  "size": [
-   128,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Стоян свири на кавал, 2 кадъра (поза отпред)",
-  "color": [
-   220,
-   180,
-   40
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "music/muzikant_golyam.png",
-  "size": [
-   192,
-   192
-  ],
-  "kind": "object",
-  "name_bg": "Голям Стоян в минииграта Свирене (може и 192×288)",
-  "color": [
-   220,
-   180,
-   40
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "music/fon_svirene.png",
-  "size": [
-   960,
-   540
-  ],
-  "kind": "object",
-  "name_bg": "Фон на минииграта Свирене (сцената в кръчмата, по-тъмна)",
-  "color": [
-   70,
-   46,
-   34
-  ],
-  "where": "rules/krachma.md 10а"
- },
- {
-  "file": "music/grif_kaval.png",
-  "size": [
-   224,
-   64
-  ],
-  "kind": "object",
-  "name_bg": "Гриф за кавала (3 ленти): парче, което се повтаря и тече надолу",
-  "color": [
-   44,
-   28,
-   18
-  ],
-  "where": "rules/krachma.md 10а"
- },
- {
-  "file": "music/nota_0.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "object",
-  "name_bg": "Нота в 1-ва лента (червена, клавиш D)",
-  "color": [
-   214,
-   58,
-   46
-  ],
-  "where": "rules/krachma.md 10а"
- },
- {
-  "file": "music/nota_1.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "object",
-  "name_bg": "Нота във 2-ра лента (жълта, клавиш F)",
-  "color": [
-   236,
-   184,
-   52
-  ],
-  "where": "rules/krachma.md 10а"
- },
- {
-  "file": "music/nota_2.png",
-  "size": [
-   64,
-   32
-  ],
-  "kind": "object",
-  "name_bg": "Нота в 3-та лента (зелена, клавиш J)",
-  "color": [
-   72,
-   168,
-   88
-  ],
-  "where": "rules/krachma.md 10а"
- },
- {
-  "file": "persons/baba_stana_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "баба Стана играе хоро: 8 кадъра отпред (бастунът вдигнат, другата ръка държи съседа)",
-  "color": [
-   180,
-   100,
-   140
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "persons/servitior_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Иван (сервитьор) в празнична носия – ходене, 8 кадъра × 4 посоки",
-  "color": [
-   60,
-   120,
-   200
-  ],
-  "where": "data/persons/servitior.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/servitior_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Иван играе хоро: 8 кадъра отпред (двете ръце протегнати)",
-  "color": [
-   60,
-   120,
-   200
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "persons/elena_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Елена в носия (зелен сукман, бродирана престилка, плитки) – ходене, 8 кадъра × 4 посоки",
-  "color": [
-   90,
-   170,
-   90
-  ],
-  "where": "data/persons/chistach.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/elena_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Елена играе хоро: 8 кадъра отпред",
-  "color": [
-   90,
-   170,
-   90
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "persons/chistach.png",
-  "size": [
-   64,
-   64
-  ],
-  "kind": "person",
-  "name_bg": "Тодор – чистач",
-  "color": [
-   90,
-   170,
-   90
-  ],
-  "where": "data/persons/chistach.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/chistach_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Тодор – чистач – ходене, 8 кадъра × 4 посоки",
-  "color": [
-   90,
-   170,
-   90
-  ],
-  "where": "data/persons/chistach.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/baba_stana_sit.png",
-  "size": [
-   256,
-   192
-  ],
-  "kind": "sheet",
-  "name_bg": "баба Стана сяда: 3 реда (надолу, нагоре, надясно) × 4 кадъра (2 сяда, 2 седи)",
-  "color": [
-   180,
-   100,
-   140
-  ],
-  "where": "GAME_RULES 6",
-  "artist": "Claude"
- },
- {
-  "file": "bench_up.png",
-  "size": [
-   128,
-   64
-  ],
-  "kind": "object",
-  "name_bg": "Пейка пред масата (седналите са с гръб към нас); може да е същата като bench.png",
-  "color": [
-   176,
-   116,
-   61
-  ],
-  "where": "GAME_RULES 6",
-  "solid": false,
-  "artist": "Claude"
- },
- {
-  "file": "persons/sobstvenik_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Димитър (собственик, 50 г., пълен, с мустаци) в носия с червен елек – ходене, 8 кадъра × 4 посоки",
-  "color": [
-   120,
-   60,
-   140
-  ],
-  "where": "data/persons/sobstvenik.json",
-  "artist": "Claude"
- },
- {
-  "file": "persons/sobstvenik_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Димитър играе хоро: 8 кадъра отпред",
-  "color": [
-   120,
-   60,
-   140
-  ],
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude"
- },
- {
-  "file": "items/rakia.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Ракия",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "items/vino.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Вино",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "items/shopska.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Шопска салата",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "items/bob.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Боб чорба",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/krachmar_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Петър – кръчмар – ходене, 8 кадъра × 4 посоки",
-  "where": "data/persons/krachmar.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/krachmar_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Петър – кръчмар – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/gotvach_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Мария – готвачка – ходене, 8 кадъра × 4 посоки",
-  "where": "data/persons/gotvach.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/gotvach_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Мария – готвачка – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/chistach_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Тодор – чистач – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/snabditel_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Георги – снабдител – ходене, 8 кадъра × 4 посоки",
-  "where": "data/persons/snabditel.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/snabditel_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Георги – снабдител – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/patnik_niki_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Ники – пътник – ходене, 8 кадъра × 4 посоки",
-  "where": "data/persons/patnik_niki.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/patnik_niki_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Ники – пътник – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/dyado_kole_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "дядо Коле – ходене, 8 кадъра × 4 посоки",
-  "where": "data/persons/dyado_kole.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/dyado_kole_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "дядо Коле – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/lovets_boris_walk.png",
-  "size": [
-   512,
-   256
-  ],
-  "kind": "sheet",
-  "name_bg": "Борис – ловец – ходене, 8 кадъра × 4 посоки",
-  "where": "data/persons/lovets_boris.json",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "persons/lovets_boris_dance.png",
-  "size": [
-   512,
-   64
-  ],
-  "kind": "sheet",
-  "name_bg": "Борис – ловец – хоро, 8 кадъра",
-  "where": "rules/krachma.md 10а",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ]
- },
- {
-  "file": "minigames/kuhnya_fon.png",
-  "kind": "sheet",
-  "name_bg": "Кухня – фон на мини игрите",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   320,
-   180
-  ]
- },
- {
-  "file": "minigames/rakia_chasha.png",
-  "kind": "sheet",
-  "name_bg": "Чаша (пълни се)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   2112,
-   60
-  ]
- },
- {
-  "file": "minigames/rakia_shishe.png",
-  "kind": "sheet",
-  "name_bg": "Шише ракия (накланя се)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   480,
-   80
-  ]
- },
- {
-  "file": "minigames/vino_bachva.png",
-  "kind": "sheet",
-  "name_bg": "Бъчва с канелка",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   256,
-   112
-  ]
- },
- {
-  "file": "minigames/vino_kancha.png",
-  "kind": "sheet",
-  "name_bg": "Глинена каничка (пълни се)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   1012,
-   46
-  ]
- },
- {
-  "file": "minigames/shopska_daska.png",
-  "kind": "sheet",
-  "name_bg": "Дъска за рязане",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   150,
-   44
-  ]
- },
- {
-  "file": "minigames/shopska_zelenchuci.png",
-  "kind": "sheet",
-  "name_bg": "Зеленчуци: цял, разрязан, на резени",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   384,
-   32
-  ]
- },
- {
-  "file": "minigames/shopska_noj.png",
-  "kind": "sheet",
-  "name_bg": "Нож (реже)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   256,
-   56
-  ]
- },
- {
-  "file": "minigames/shopska_kupa.png",
-  "kind": "sheet",
-  "name_bg": "Купа с шопска",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   840,
-   50
-  ]
- },
- {
-  "file": "minigames/bob_ognishte.png",
-  "kind": "sheet",
-  "name_bg": "Каменно огнище",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   168,
-   52
-  ]
- },
- {
-  "file": "minigames/bob_ogan.png",
-  "kind": "sheet",
-  "name_bg": "Огън (3 размера)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   1296,
-   48
-  ]
- },
- {
-  "file": "minigames/bob_garne.png",
-  "kind": "sheet",
-  "name_bg": "Гърне с боб (мехурчета)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   480,
-   92
-  ]
- },
- {
-  "file": "minigames/bob_lazhica.png",
-  "kind": "sheet",
-  "name_bg": "Лъжица (бърка)",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   960,
-   92
-  ]
- },
- {
-  "file": "minigames/bob_para.png",
-  "kind": "sheet",
-  "name_bg": "Пара",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   150,
-   110,
-   60
-  ],
-  "size": [
-   288,
-   52
-  ]
- },
- {
-  "file": "items/hlyab.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Хляб (самун)",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- },
- {
-  "file": "items/sirene.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Сирене",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- },
- {
-  "file": "items/domat.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Домат",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- },
- {
-  "file": "items/yaytse.png",
-  "size": [
-   32,
-   32
-  ],
-  "kind": "item",
-  "name_bg": "Яйце",
-  "where": "data/items.json",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- },
- {
-  "file": "minigames/hlyab_samun.png",
-  "size": [
-   1120,
-   110
-  ],
-  "kind": "sheet",
-  "name_bg": "Самун – режат се филийки",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- },
- {
-  "file": "minigames/hlyab_filiyka.png",
-  "size": [
-   72,
-   36
-  ],
-  "kind": "sheet",
-  "name_bg": "Филийка хляб",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- },
- {
-  "file": "minigames/hlyab_chiniya.png",
-  "size": [
-   90,
-   40
-  ],
-  "kind": "sheet",
-  "name_bg": "Чиния",
-  "where": "gotvene.py",
-  "artist": "Claude",
-  "color": [
-   200,
-   150,
-   80
-  ]
- }
+  {
+    "file": "floor.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "floor",
+    "name_bg": "Под от дъски",
+    "color": [
+      150,
+      110,
+      70
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "wall.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tall",
+    "name_bg": "Стена (цяла)",
+    "color": [
+      70,
+      70,
+      90
+    ],
+    "where": "GAME_RULES 6"
+  },
+  {
+    "file": "door.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tall",
+    "name_bg": "Врата",
+    "color": [
+      60,
+      120,
+      160
+    ],
+    "where": "rules/krachma.md",
+    "solid": false
+  },
+  {
+    "file": "window.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tall",
+    "name_bg": "Прозорец в стена",
+    "color": [
+      110,
+      140,
+      170
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "wall_top.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "part",
+    "name_bg": "Стена отгоре (странични и долни стени) - бесшевна във всички посоки",
+    "color": [
+      84,
+      74,
+      66
+    ],
+    "where": "GAME_RULES 6"
+  },
+  {
+    "file": "door_top.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "part",
+    "name_bg": "Вход в стена, гледан отгоре (праг, черга)",
+    "color": [
+      168,
+      116,
+      74
+    ],
+    "where": "GAME_RULES 6",
+    "solid": false
+  },
+  {
+    "file": "tilesets/walls.png",
+    "size": [
+      256,
+      192
+    ],
+    "kind": "tileset",
+    "name_bg": "Тайлсет стени: ъгли, горен ръб, лице (квадратчета 64×64)",
+    "color": [
+      90,
+      85,
+      100
+    ],
+    "where": "GAME_RULES 6"
+  },
+  {
+    "file": "table.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Маса",
+    "color": [
+      150,
+      100,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "table_right.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Маса (завъртяна, дъски по дължина)",
+    "color": [
+      150,
+      100,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "chair_down.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Стол (гледа към нас)",
+    "color": [
+      140,
+      90,
+      55
+    ],
+    "where": "rules/krachma.md",
+    "solid": false,
+    "artist": "Claude"
+  },
+  {
+    "file": "chair_up.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Стол (с гръб към нас)",
+    "color": [
+      140,
+      90,
+      55
+    ],
+    "where": "rules/krachma.md",
+    "solid": false,
+    "artist": "Claude"
+  },
+  {
+    "file": "chair_right.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Стол (гледа надясно)",
+    "color": [
+      140,
+      90,
+      55
+    ],
+    "where": "rules/krachma.md",
+    "solid": false,
+    "artist": "Claude"
+  },
+  {
+    "file": "bar.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Тезгях",
+    "color": [
+      110,
+      70,
+      45
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "barrel.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Бъчва с канелка",
+    "color": [
+      130,
+      85,
+      50
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "cash.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Каса",
+    "color": [
+      170,
+      150,
+      80
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "cutting_board.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Маса с дъска за рязане",
+    "color": [
+      190,
+      150,
+      100
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "stove.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Печка с гърне",
+    "color": [
+      80,
+      80,
+      85
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "cauldron.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Котел на огън",
+    "color": [
+      60,
+      60,
+      65
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "sink.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Каменно корито",
+    "color": [
+      150,
+      170,
+      180
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "chest.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Сандък",
+    "color": [
+      120,
+      80,
+      45
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "counter_pass.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Гише за кухнята",
+    "color": [
+      160,
+      120,
+      80
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "mill.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Мелница (ръчна)",
+    "color": [
+      150,
+      150,
+      140
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "press.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Преса за грозде/плодове",
+    "color": [
+      120,
+      90,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ferment_barrel.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Бъчва за ферментация",
+    "color": [
+      110,
+      75,
+      45
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "still.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Казан за ракия",
+    "color": [
+      190,
+      110,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "table_big.png",
+    "size": [
+      128,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Голяма маса",
+    "color": [
+      150,
+      100,
+      60
+    ],
+    "where": "rules/krachma.md",
+    "artist": "Claude"
+  },
+  {
+    "file": "bench.png",
+    "size": [
+      128,
+      64
+    ],
+    "kind": "furniture",
+    "name_bg": "Пейка зад масата (седналите гледат към нас), без облегалка",
+    "color": [
+      140,
+      95,
+      55
+    ],
+    "where": "rules/krachma.md",
+    "solid": false,
+    "artist": "Claude"
+  },
+  {
+    "file": "stage.png",
+    "size": [
+      128,
+      64
+    ],
+    "kind": "tile",
+    "name_bg": "Сцена с черга",
+    "color": [
+      120,
+      80,
+      50
+    ],
+    "where": "data/furniture.json",
+    "solid": false,
+    "artist": "Claude"
+  },
+  {
+    "file": "bed.png",
+    "size": [
+      64,
+      128
+    ],
+    "kind": "furniture",
+    "name_bg": "Легло (стая за нощуване)",
+    "color": [
+      170,
+      60,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "oven.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tall",
+    "name_bg": "Фурна",
+    "color": [
+      170,
+      90,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "fireplace.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tile",
+    "name_bg": "Огнище",
+    "color": [
+      120,
+      110,
+      105
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "shelf.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tile",
+    "name_bg": "Рафт с буркани",
+    "color": [
+      120,
+      85,
+      50
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "menu_board.png",
+    "size": [
+      64,
+      96
+    ],
+    "kind": "tile",
+    "name_bg": "Табло с меню",
+    "color": [
+      60,
+      50,
+      40
+    ],
+    "where": "data/furniture.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "items/cup_empty.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чаша празна",
+    "color": [
+      200,
+      220,
+      230
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/cup_full.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чаша пълна",
+    "color": [
+      230,
+      200,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/cup_dirty.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чаша мръсна",
+    "color": [
+      150,
+      140,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/mug_beer.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Халба бира",
+    "color": [
+      220,
+      170,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/glass_wine.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чаша вино",
+    "color": [
+      150,
+      30,
+      50
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/glass_rakia.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чашка ракия",
+    "color": [
+      230,
+      220,
+      190
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/plate_clean.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чиния чиста",
+    "color": [
+      235,
+      235,
+      230
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/plate_dirty.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чиния мръсна",
+    "color": [
+      160,
+      150,
+      130
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/bowl_clean.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Купа чиста",
+    "color": [
+      230,
+      225,
+      210
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/bowl_dirty.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Купа мръсна",
+    "color": [
+      160,
+      145,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/bread.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Хляб",
+    "color": [
+      200,
+      150,
+      80
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/cheese.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Сирене",
+    "color": [
+      245,
+      245,
+      230
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/eggs.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Яйца",
+    "color": [
+      240,
+      230,
+      200
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/beans.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Боб",
+    "color": [
+      200,
+      180,
+      150
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/onion.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Лук",
+    "color": [
+      220,
+      180,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/carrot.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Морков",
+    "color": [
+      240,
+      130,
+      40
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/potato.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Картоф",
+    "color": [
+      190,
+      150,
+      90
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/flour.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Брашно",
+    "color": [
+      245,
+      240,
+      225
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/milk.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Мляко",
+    "color": [
+      250,
+      250,
+      250
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/yogurt.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Кисело мляко",
+    "color": [
+      245,
+      245,
+      240
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/tomato.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Домат",
+    "color": [
+      220,
+      50,
+      40
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/cucumber.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Краставица",
+    "color": [
+      70,
+      150,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/pepper.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Чушка",
+    "color": [
+      200,
+      40,
+      40
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/spices.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Подправки",
+    "color": [
+      120,
+      150,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/butter.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Масло",
+    "color": [
+      250,
+      230,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/oil.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Олио",
+    "color": [
+      230,
+      200,
+      80
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/salt.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Сол",
+    "color": [
+      240,
+      240,
+      240
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/firewood.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Дърва",
+    "color": [
+      130,
+      90,
+      50
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/malt.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Малц",
+    "color": [
+      210,
+      170,
+      90
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/hops.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Хмел",
+    "color": [
+      120,
+      180,
+      80
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/grapes.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Грозде",
+    "color": [
+      110,
+      60,
+      140
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/fruit.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Плодове",
+    "color": [
+      230,
+      120,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/herbs.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Билки",
+    "color": [
+      90,
+      160,
+      90
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/strings.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Струни",
+    "color": [
+      200,
+      200,
+      200
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/tip_hat.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Шапка за бакшиш",
+    "color": [
+      90,
+      70,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/dish_bean_soup.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Боб чорба (купа)",
+    "color": [
+      180,
+      110,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/dish_eggs.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Пържени яйца",
+    "color": [
+      250,
+      220,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/dish_bread_cheese.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Филия със сирене",
+    "color": [
+      230,
+      200,
+      150
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/dish_potatoes.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Печени картофи",
+    "color": [
+      220,
+      170,
+      80
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/dish_banitsa.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Баница",
+    "color": [
+      230,
+      190,
+      110
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/dish_salad.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Шопска салата",
+    "color": [
+      210,
+      80,
+      70
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/drink_ayran.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Айрян",
+    "color": [
+      245,
+      245,
+      245
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/drink_tea.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Билков чай",
+    "color": [
+      170,
+      120,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/drink_lemonade.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Лимонада",
+    "color": [
+      250,
+      240,
+      120
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "items/drink_boza.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Боза",
+    "color": [
+      160,
+      110,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/inst_gadulka.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "icon",
+    "name_bg": "Икона: Гъдулка",
+    "color": [
+      150,
+      90,
+      50
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/inst_kaval.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "icon",
+    "name_bg": "Икона: Кавал",
+    "color": [
+      200,
+      160,
+      100
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/inst_gaida.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "icon",
+    "name_bg": "Икона: Гайда",
+    "color": [
+      230,
+      230,
+      220
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/inst_tambura.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "icon",
+    "name_bg": "Икона: Тамбура",
+    "color": [
+      170,
+      110,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/inst_accordion.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "icon",
+    "name_bg": "Икона: Акордеон",
+    "color": [
+      180,
+      40,
+      40
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/star_full.png",
+    "size": [
+      16,
+      16
+    ],
+    "kind": "icon",
+    "name_bg": "Звезда (качество) пълна",
+    "color": [
+      250,
+      210,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/star_empty.png",
+    "size": [
+      16,
+      16
+    ],
+    "kind": "icon",
+    "name_bg": "Звезда (качество) празна",
+    "color": [
+      90,
+      90,
+      90
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/note_lane1.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "note",
+    "name_bg": "Нота за лента 1 (мини игра Свирене)",
+    "color": [
+      220,
+      70,
+      70
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/note_lane2.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "note",
+    "name_bg": "Нота за лента 2 (мини игра Свирене)",
+    "color": [
+      70,
+      170,
+      220
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/note_lane3.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "note",
+    "name_bg": "Нота за лента 3 (мини игра Свирене)",
+    "color": [
+      90,
+      200,
+      90
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/note_lane4.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "note",
+    "name_bg": "Нота за лента 4 (мини игра Свирене)",
+    "color": [
+      230,
+      200,
+      60
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/note_lane5.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "note",
+    "name_bg": "Нота за лента 5 (мини игра Свирене)",
+    "color": [
+      180,
+      100,
+      220
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "ui/rhythm_bg.png",
+    "size": [
+      1024,
+      576
+    ],
+    "kind": "bg",
+    "name_bg": "Фон на мини играта Свирене",
+    "color": [
+      40,
+      30,
+      35
+    ],
+    "where": "rules/krachma.md"
+  },
+  {
+    "file": "persons/sobstvenik.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Димитър – собственик",
+    "color": [
+      120,
+      60,
+      140
+    ],
+    "where": "data/persons/sobstvenik.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/krachmar.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Петър – кръчмар",
+    "color": [
+      200,
+      80,
+      60
+    ],
+    "where": "data/persons/krachmar.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/gotvach.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Мария – готвачка",
+    "color": [
+      240,
+      240,
+      230
+    ],
+    "where": "data/persons/gotvach.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/servitior.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Иван – сервитьор",
+    "color": [
+      60,
+      120,
+      200
+    ],
+    "where": "data/persons/servitior.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/elena.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Елена – гостенка в носия",
+    "color": [
+      90,
+      170,
+      90
+    ],
+    "where": "data/persons/chistach.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/snabditel.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Георги – снабдител",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "where": "data/persons/snabditel.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/muzikant.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Стоян – музикант",
+    "color": [
+      220,
+      180,
+      40
+    ],
+    "where": "data/persons/muzikant.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/baba_stana.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "баба Стана – жител",
+    "color": [
+      180,
+      100,
+      140
+    ],
+    "where": "data/persons/baba_stana.json"
+  },
+  {
+    "file": "persons/baba_stana_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "баба Стана – ходене, 8 кадъра × 4 посоки (ред 1 надолу, 2 нагоре, 3 надясно, 4 наляво)",
+    "color": [
+      180,
+      100,
+      140
+    ],
+    "where": "data/persons/baba_stana.json"
+  },
+  {
+    "file": "persons/dyado_kole.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "дядо Коле",
+    "color": [
+      110,
+      110,
+      110
+    ],
+    "where": "data/persons/dyado_kole.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/lovets_boris.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Борис – ловец",
+    "color": [
+      70,
+      100,
+      50
+    ],
+    "where": "data/persons/lovets_boris.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/patnik_niki.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Ники – пътник",
+    "color": [
+      60,
+      160,
+      170
+    ],
+    "where": "data/persons/patnik_niki.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "music/kaval.png",
+    "size": [
+      192,
+      432
+    ],
+    "kind": "object",
+    "name_bg": "Кавал - голям, отстрани на екрана в минииграта Свирене (платно 960x540)",
+    "color": [
+      176,
+      116,
+      64
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/muzikant_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Стоян (музикант) – ходене, 8 кадъра × 4 посоки (надолу, нагоре, надясно, наляво)",
+    "color": [
+      220,
+      180,
+      40
+    ],
+    "where": "data/persons/muzikant.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/muzikant_play.png",
+    "size": [
+      128,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Стоян свири на кавал, 2 кадъра (поза отпред)",
+    "color": [
+      220,
+      180,
+      40
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "music/muzikant_golyam.png",
+    "size": [
+      192,
+      192
+    ],
+    "kind": "object",
+    "name_bg": "Голям Стоян в минииграта Свирене (може и 192×288)",
+    "color": [
+      220,
+      180,
+      40
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "music/fon_svirene.png",
+    "size": [
+      960,
+      540
+    ],
+    "kind": "object",
+    "name_bg": "Фон на минииграта Свирене (сцената в кръчмата, по-тъмна)",
+    "color": [
+      70,
+      46,
+      34
+    ],
+    "where": "rules/krachma.md 10а"
+  },
+  {
+    "file": "music/grif_kaval.png",
+    "size": [
+      224,
+      64
+    ],
+    "kind": "object",
+    "name_bg": "Гриф за кавала (3 ленти): парче, което се повтаря и тече надолу",
+    "color": [
+      44,
+      28,
+      18
+    ],
+    "where": "rules/krachma.md 10а"
+  },
+  {
+    "file": "music/nota_0.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "object",
+    "name_bg": "Нота в 1-ва лента (червена, клавиш D)",
+    "color": [
+      214,
+      58,
+      46
+    ],
+    "where": "rules/krachma.md 10а"
+  },
+  {
+    "file": "music/nota_1.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "object",
+    "name_bg": "Нота във 2-ра лента (жълта, клавиш F)",
+    "color": [
+      236,
+      184,
+      52
+    ],
+    "where": "rules/krachma.md 10а"
+  },
+  {
+    "file": "music/nota_2.png",
+    "size": [
+      64,
+      32
+    ],
+    "kind": "object",
+    "name_bg": "Нота в 3-та лента (зелена, клавиш J)",
+    "color": [
+      72,
+      168,
+      88
+    ],
+    "where": "rules/krachma.md 10а"
+  },
+  {
+    "file": "persons/baba_stana_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "баба Стана играе хоро: 8 кадъра отпред (бастунът вдигнат, другата ръка държи съседа)",
+    "color": [
+      180,
+      100,
+      140
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/servitior_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Иван (сервитьор) в празнична носия – ходене, 8 кадъра × 4 посоки",
+    "color": [
+      60,
+      120,
+      200
+    ],
+    "where": "data/persons/servitior.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/servitior_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Иван играе хоро: 8 кадъра отпред (двете ръце протегнати)",
+    "color": [
+      60,
+      120,
+      200
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/elena_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Елена в носия (зелен сукман, бродирана престилка, плитки) – ходене, 8 кадъра × 4 посоки",
+    "color": [
+      90,
+      170,
+      90
+    ],
+    "where": "data/persons/chistach.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/elena_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Елена играе хоро: 8 кадъра отпред",
+    "color": [
+      90,
+      170,
+      90
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/chistach.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "person",
+    "name_bg": "Тодор – чистач",
+    "color": [
+      90,
+      170,
+      90
+    ],
+    "where": "data/persons/chistach.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/chistach_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Тодор – чистач – ходене, 8 кадъра × 4 посоки",
+    "color": [
+      90,
+      170,
+      90
+    ],
+    "where": "data/persons/chistach.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/baba_stana_sit.png",
+    "size": [
+      256,
+      192
+    ],
+    "kind": "sheet",
+    "name_bg": "баба Стана сяда: 3 реда (надолу, нагоре, надясно) × 4 кадъра (2 сяда, 2 седи)",
+    "color": [
+      180,
+      100,
+      140
+    ],
+    "where": "GAME_RULES 6",
+    "artist": "Claude"
+  },
+  {
+    "file": "bench_up.png",
+    "size": [
+      128,
+      64
+    ],
+    "kind": "object",
+    "name_bg": "Пейка пред масата (седналите са с гръб към нас); може да е същата като bench.png",
+    "color": [
+      176,
+      116,
+      61
+    ],
+    "where": "GAME_RULES 6",
+    "solid": false,
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/sobstvenik_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Димитър (собственик, 50 г., пълен, с мустаци) в носия с червен елек – ходене, 8 кадъра × 4 посоки",
+    "color": [
+      120,
+      60,
+      140
+    ],
+    "where": "data/persons/sobstvenik.json",
+    "artist": "Claude"
+  },
+  {
+    "file": "persons/sobstvenik_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Димитър играе хоро: 8 кадъра отпред",
+    "color": [
+      120,
+      60,
+      140
+    ],
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude"
+  },
+  {
+    "file": "items/rakia.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Ракия",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "items/vino.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Вино",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "items/shopska.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Шопска салата",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "items/bob.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Боб чорба",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/krachmar_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Петър – кръчмар – ходене, 8 кадъра × 4 посоки",
+    "where": "data/persons/krachmar.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/krachmar_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Петър – кръчмар – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/gotvach_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Мария – готвачка – ходене, 8 кадъра × 4 посоки",
+    "where": "data/persons/gotvach.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/gotvach_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Мария – готвачка – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/chistach_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Тодор – чистач – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/snabditel_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Георги – снабдител – ходене, 8 кадъра × 4 посоки",
+    "where": "data/persons/snabditel.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/snabditel_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Георги – снабдител – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/patnik_niki_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Ники – пътник – ходене, 8 кадъра × 4 посоки",
+    "where": "data/persons/patnik_niki.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/patnik_niki_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Ники – пътник – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/dyado_kole_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "дядо Коле – ходене, 8 кадъра × 4 посоки",
+    "where": "data/persons/dyado_kole.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/dyado_kole_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "дядо Коле – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/lovets_boris_walk.png",
+    "size": [
+      512,
+      256
+    ],
+    "kind": "sheet",
+    "name_bg": "Борис – ловец – ходене, 8 кадъра × 4 посоки",
+    "where": "data/persons/lovets_boris.json",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "persons/lovets_boris_dance.png",
+    "size": [
+      512,
+      64
+    ],
+    "kind": "sheet",
+    "name_bg": "Борис – ловец – хоро, 8 кадъра",
+    "where": "rules/krachma.md 10а",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ]
+  },
+  {
+    "file": "minigames/kuhnya_fon.png",
+    "kind": "sheet",
+    "name_bg": "Кухня – фон на мини игрите",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      320,
+      180
+    ]
+  },
+  {
+    "file": "minigames/rakia_chasha.png",
+    "kind": "sheet",
+    "name_bg": "Чаша (пълни се)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      2112,
+      60
+    ]
+  },
+  {
+    "file": "minigames/rakia_shishe.png",
+    "kind": "sheet",
+    "name_bg": "Шише ракия (накланя се)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      480,
+      80
+    ]
+  },
+  {
+    "file": "minigames/vino_bachva.png",
+    "kind": "sheet",
+    "name_bg": "Бъчва с канелка",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      256,
+      112
+    ]
+  },
+  {
+    "file": "minigames/vino_kancha.png",
+    "kind": "sheet",
+    "name_bg": "Глинена каничка (пълни се)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      1012,
+      46
+    ]
+  },
+  {
+    "file": "minigames/shopska_daska.png",
+    "kind": "sheet",
+    "name_bg": "Дъска за рязане",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      150,
+      44
+    ]
+  },
+  {
+    "file": "minigames/shopska_zelenchuci.png",
+    "kind": "sheet",
+    "name_bg": "Зеленчуци: цял, разрязан, на резени",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      384,
+      32
+    ]
+  },
+  {
+    "file": "minigames/shopska_noj.png",
+    "kind": "sheet",
+    "name_bg": "Нож (реже)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      256,
+      56
+    ]
+  },
+  {
+    "file": "minigames/shopska_kupa.png",
+    "kind": "sheet",
+    "name_bg": "Купа с шопска",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      840,
+      50
+    ]
+  },
+  {
+    "file": "minigames/bob_ognishte.png",
+    "kind": "sheet",
+    "name_bg": "Каменно огнище",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      168,
+      52
+    ]
+  },
+  {
+    "file": "minigames/bob_ogan.png",
+    "kind": "sheet",
+    "name_bg": "Огън (3 размера)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      1296,
+      48
+    ]
+  },
+  {
+    "file": "minigames/bob_garne.png",
+    "kind": "sheet",
+    "name_bg": "Гърне с боб (мехурчета)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      480,
+      92
+    ]
+  },
+  {
+    "file": "minigames/bob_lazhica.png",
+    "kind": "sheet",
+    "name_bg": "Лъжица (бърка)",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      960,
+      92
+    ]
+  },
+  {
+    "file": "minigames/bob_para.png",
+    "kind": "sheet",
+    "name_bg": "Пара",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      150,
+      110,
+      60
+    ],
+    "size": [
+      288,
+      52
+    ]
+  },
+  {
+    "file": "items/hlyab.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Хляб (самун)",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "items/sirene.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Сирене",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "items/domat.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Домат",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "items/yaytse.png",
+    "size": [
+      32,
+      32
+    ],
+    "kind": "item",
+    "name_bg": "Яйце",
+    "where": "data/items.json",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "minigames/hlyab_samun.png",
+    "size": [
+      1120,
+      110
+    ],
+    "kind": "sheet",
+    "name_bg": "Самун – режат се филийки",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "minigames/hlyab_filiyka.png",
+    "size": [
+      72,
+      36
+    ],
+    "kind": "sheet",
+    "name_bg": "Филийка хляб",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "minigames/hlyab_chiniya.png",
+    "size": [
+      90,
+      40
+    ],
+    "kind": "sheet",
+    "name_bg": "Чиния",
+    "where": "gotvene.py",
+    "artist": "Claude",
+    "color": [
+      200,
+      150,
+      80
+    ]
+  },
+  {
+    "file": "grass.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "floor",
+    "name_bg": "Трева",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "grass2.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "floor",
+    "name_bg": "Трева с цветчета",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "path.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "floor",
+    "name_bg": "Калдъръм",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "house_a.png",
+    "size": [
+      256,
+      256
+    ],
+    "kind": "object",
+    "name_bg": "Къща (бяла)",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "house_b.png",
+    "size": [
+      256,
+      256
+    ],
+    "kind": "object",
+    "name_bg": "Къща (жълта)",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "krachma_out.png",
+    "size": [
+      384,
+      256
+    ],
+    "kind": "object",
+    "name_bg": "Кръчмата отвън",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "sergia.png",
+    "size": [
+      128,
+      128
+    ],
+    "kind": "object",
+    "name_bg": "Сергия на пазара",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "kladenets.png",
+    "size": [
+      64,
+      112
+    ],
+    "kind": "object",
+    "name_bg": "Кладенец",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "darvo.png",
+    "size": [
+      128,
+      160
+    ],
+    "kind": "object",
+    "name_bg": "Дърво",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "ograda.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "object",
+    "name_bg": "Ограда",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  },
+  {
+    "file": "tsvetya.png",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "object",
+    "name_bg": "Цветя",
+    "color": [
+      100,
+      160,
+      80
+    ],
+    "where": "селото (make_selo.py)"
+  }
 ]

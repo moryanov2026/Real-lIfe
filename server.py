@@ -74,6 +74,12 @@ class Сървър:
         if запис and os.path.exists(запис):
             път_карта = запис
         self.свят = world.Свят(път_карта, папка_персони)
+        # запазената игра (пари, склад, часовник): до файла с кръчмата
+        self.запис_игра = (os.path.join(os.path.dirname(запис), "igra.json")
+                           if запис and not os.environ.get("REALLIFE_BEZ_ZAPIS") else None)   # selftest не пази
+        if self.запис_игра:
+            self.свят.зареди_запис(self.запис_игра)
+        self._час = self.свят.минути // 60
         self.слушател = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.слушател.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.слушател.bind((хост, порт))          # порт 0 = избери свободен (за "Играй сам")
@@ -90,8 +96,16 @@ class Сървър:
         threading.Thread(target=self._цикъл, daemon=True).start()
         return self
 
+    def запази(self):
+        if self.запис_игра:
+            try:
+                self.свят.запиши(self.запис_игра)
+            except OSError:
+                pass
+
     def спри(self):
         self.работи = False
+        self.запази()
         try:
             self.слушател.close()
         except OSError:
@@ -135,6 +149,15 @@ class Сървър:
         while self.работи:
             self._обработи_опашката()
             self.свят.обнови(стъпка)
+            while getattr(self.свят, "обявления", None):   # празник, камбани, гощавка: до всички
+                self._до_всички_важно({"t": "announce", "text": self.свят.обявления.pop(0)})
+            if self.свят.нов_отчет:                 # кръчмата затвори: отчетът за деня до всички
+                self.свят.нов_отчет = False
+                self._до_всички_важно({"t": "report", "report": self.свят.последен_отчет})
+                self.запази()
+            elif self.свят.минути // 60 != self._час:   # всеки час в играта: запазване
+                self.запази()
+            self._час = self.свят.минути // 60
             съобщение = {"t": "state"}
             съобщение.update(self.свят.състояние())
             self._до_всички(съобщение)
@@ -166,7 +189,8 @@ class Сървър:
         т = с.get("t")
         if т == "hello":
             к["име"] = (str(с.get("name", "")).strip() or "Играч")[:20]
-            self._прати(номер, {"t": "welcome", "id": номер, "map": self.свят.карта,
+            карти = self.свят.карти_за_клиента()
+            self._прати(номер, {"t": "welcome", "id": номер, "map": self.свят.карта, "maps": карти,
                                 "persons": self.свят.описания()})
         elif т == "pick":
             if self.свят.вземи(с.get("person"), номер, к["име"]):
@@ -186,13 +210,32 @@ class Сървър:
                     os.makedirs(os.path.dirname(self.запис), exist_ok=True)
                     tiles.запиши_карта(self.свят.карта, self.запис)
         elif т == "use":                        # E: гостът поръчва; персоналът приготвя / взима / сервира
-            успех, текст = self.свят.използвай(номер)
+            успех, текст = self.свят.използвай(номер, с.get("seed"))
             if текст:
                 self._прати(номер, {"t": "use_result", "ok": успех, "text": текст})
         elif т == "cook":                       # ученик изигра мини играта при готвенето
             успех, текст = self.свят.сготви(номер, с.get("item"), с.get("quality", 0.6))
             if текст:
                 self._прати(номер, {"t": "use_result", "ok": успех, "text": текст})
+        elif т == "wash":                       # чистачът изигра мини играта на мивката
+            успех, текст = self.свят.измий(номер, с.get("quality", 0.6))
+            if текст:
+                self._прати(номер, {"t": "use_result", "ok": успех, "text": текст})
+        elif т == "church":                     # отецът / звънарят изиграха мини игра
+            успех, текст = self.свят.църква_клиент(номер, с.get("op"), с.get("quality", 0.7))
+            if текст:
+                self._прати(номер, {"t": "use_result", "ok": успех, "text": текст})
+        elif т == "milk":                       # селянинът издои кравата (мини игра)
+            успех, текст = self.свят.доене_клиент(номер, с.get("quality", 0.7))
+            if текст:
+                self._прати(номер, {"t": "use_result", "ok": успех, "text": текст})
+        elif т == "till":                       # касиерът маркира и върна ресто (мини игра)
+            успех, текст = self.свят.маг_каса_клиент(номер, с.get("quality", 0.8))
+            if текст:
+                self._прати(номер, {"t": "use_result", "ok": успех, "text": текст})
+        elif т == "manage":                     # прозорецът на собственика (M)
+            успех, текст = self.свят.управлявай(номер, с.get("op"), с.get("key"), с.get("value", 0))
+            self._прати(номер, {"t": "manage_result", "ok": успех, "text": текст})
         elif т == "order_song":                 # E до музиканта: собственикът поръчва песен
             успех, текст = self.свят.поръчай_песен(номер)
             self._прати(номер, {"t": "order_result", "ok": успех, "text": текст})

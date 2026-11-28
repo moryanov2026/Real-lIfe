@@ -16,3 +16,6 @@ dist/
 *.spec
 RealLife.zip
 selftest.txt
+
+# Запазената игра (пари, склад, ден) - отделна за всеки компютър
+data/saves/igra.json

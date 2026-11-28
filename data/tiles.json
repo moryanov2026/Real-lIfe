@@ -346,5 +346,131 @@
     "h": 2,
     "solid": false,
     "sort_top": true
+  },
+  "grass": {
+    "layer": "floor",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "grass2": {
+    "layer": "floor",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "path": {
+    "layer": "floor",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "house_a": {
+    "layer": "object",
+    "w": 4,
+    "h": 3,
+    "solid": true
+  },
+  "house_b": {
+    "layer": "object",
+    "w": 4,
+    "h": 3,
+    "solid": true
+  },
+  "krachma_out": {
+    "layer": "object",
+    "w": 6,
+    "h": 3,
+    "solid": true
+  },
+  "sergia": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": true
+  },
+  "kladenets": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "darvo": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": true
+  },
+  "ograda": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "tsvetya": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "kokoshkarnik": {
+    "layer": "object",
+    "w": 2,
+    "h": 2,
+    "solid": true
+  },
+  "krava": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": true
+  },
+  "magazin_out": {
+    "layer": "object",
+    "w": 4,
+    "h": 3,
+    "solid": true
+  },
+  "niva": {
+    "layer": "floor",
+    "w": 1,
+    "h": 1,
+    "solid": false
+  },
+  "tsarkva_out": {
+    "layer": "object",
+    "w": 5,
+    "h": 4,
+    "solid": true
+  },
+  "kambanaria": {
+    "layer": "object",
+    "w": 2,
+    "h": 1,
+    "solid": true
+  },
+  "ikonostas": {
+    "layer": "object",
+    "w": 6,
+    "h": 2,
+    "solid": true
+  },
+  "svechnik": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "kupel": {
+    "layer": "object",
+    "w": 1,
+    "h": 1,
+    "solid": true
+  },
+  "kamak_pod": {
+    "layer": "floor",
+    "w": 1,
+    "h": 1,
+    "solid": false
   }
 }

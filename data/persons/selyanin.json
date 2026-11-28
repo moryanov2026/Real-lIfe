@@ -1,0 +1,11 @@
+{
+  "id": "selyanin",
+  "name": "бай Стефан",
+  "role": "селянин",
+  "color": [120, 150, 60],
+  "start": [3, 17],
+  "map": "selo",
+  "age": 55,
+  "traits": ["работлив", "знае кога ще вали"],
+  "likes": {"food": "bob", "music": "pravo_horo", "hobby": "градината"}
+}

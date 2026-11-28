@@ -1,0 +1,11 @@
+{
+  "id": "zvanar",
+  "name": "бай Петко",
+  "role": "звънар",
+  "color": [150, 130, 90],
+  "start": [46, 17],
+  "map": "selo",
+  "age": 66,
+  "traits": ["точен като часовник"],
+  "likes": {"food": "rakia", "music": "pravo_horo", "hobby": "камбаните"}
+}
