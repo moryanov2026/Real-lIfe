@@ -1,0 +1,1029 @@
+{
+ "frames": [
+  {
+   "filename": "pot-steam 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 1",
+   "frame": {
+    "x": 112,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 2",
+   "frame": {
+    "x": 224,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 3",
+   "frame": {
+    "x": 336,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 4",
+   "frame": {
+    "x": 448,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 5",
+   "frame": {
+    "x": 560,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 6",
+   "frame": {
+    "x": 0,
+    "y": 80,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 7",
+   "frame": {
+    "x": 112,
+    "y": 80,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 8",
+   "frame": {
+    "x": 224,
+    "y": 80,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 9",
+   "frame": {
+    "x": 336,
+    "y": 80,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 10",
+   "frame": {
+    "x": 448,
+    "y": 80,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 11",
+   "frame": {
+    "x": 560,
+    "y": 80,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 12",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 13",
+   "frame": {
+    "x": 112,
+    "y": 160,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 14",
+   "frame": {
+    "x": 224,
+    "y": 160,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 15",
+   "frame": {
+    "x": 336,
+    "y": 160,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 16",
+   "frame": {
+    "x": 448,
+    "y": 160,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 17",
+   "frame": {
+    "x": 560,
+    "y": 160,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 18",
+   "frame": {
+    "x": 0,
+    "y": 240,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 19",
+   "frame": {
+    "x": 112,
+    "y": 240,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 20",
+   "frame": {
+    "x": 224,
+    "y": 240,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 21",
+   "frame": {
+    "x": 336,
+    "y": 240,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 22",
+   "frame": {
+    "x": 448,
+    "y": 240,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 23",
+   "frame": {
+    "x": 560,
+    "y": 240,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 24",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 25",
+   "frame": {
+    "x": 112,
+    "y": 320,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 26",
+   "frame": {
+    "x": 224,
+    "y": 320,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 27",
+   "frame": {
+    "x": 336,
+    "y": 320,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 28",
+   "frame": {
+    "x": 448,
+    "y": 320,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 29",
+   "frame": {
+    "x": 560,
+    "y": 320,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 30",
+   "frame": {
+    "x": 0,
+    "y": 400,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 31",
+   "frame": {
+    "x": 112,
+    "y": 400,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 32",
+   "frame": {
+    "x": 224,
+    "y": 400,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 33",
+   "frame": {
+    "x": 336,
+    "y": 400,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 34",
+   "frame": {
+    "x": 448,
+    "y": 400,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 35",
+   "frame": {
+    "x": 560,
+    "y": 400,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 36",
+   "frame": {
+    "x": 0,
+    "y": 480,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 37",
+   "frame": {
+    "x": 112,
+    "y": 480,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 38",
+   "frame": {
+    "x": 224,
+    "y": 480,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 39",
+   "frame": {
+    "x": 336,
+    "y": 480,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 40",
+   "frame": {
+    "x": 448,
+    "y": 480,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 41",
+   "frame": {
+    "x": 560,
+    "y": 480,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 42",
+   "frame": {
+    "x": 0,
+    "y": 560,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 43",
+   "frame": {
+    "x": 112,
+    "y": 560,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "pot-steam 44",
+   "frame": {
+    "x": 224,
+    "y": 560,
+    "w": 112,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 80
+   },
+   "duration": 67
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "pot-steam.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 672,
+   "h": 640
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "pot-steam",
+    "from": 0,
+    "to": 44,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "nature/pot-steam",
+   "name": "Pot steam",
+   "fps": 15,
+   "loop": true,
+   "frames": 45,
+   "frameSize": [
+    112,
+    80
+   ],
+   "pivot": [
+    56,
+    76
+   ],
+   "columns": 6
+  }
+ }
+}

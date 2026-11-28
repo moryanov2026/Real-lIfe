@@ -34,6 +34,7 @@ def ръкав(cv,sh,el,hd,z,ex=0.0,маншет=True):
         for d,c in ((-1,RED),(0,ORANGE),(1,RED)):
             cv.plot(int(mx+d),int(my),c,z+0.6,978)
         cv.plot(int(mx),int(my)+1,GREEN,z+0.6,978)
+    гънка(cv,el,SHIRT,z)
     ellipse(cv,hd[0],hd[1]+1.4,2.1,2.0,SKIN,z+0.3,extra=-0.1)
 
 def клонка(cv,x,y,s=1):
@@ -52,6 +53,9 @@ def гайтан_извивка(cv,x,y,огледално=False):
 def head_front(cv,hc,back=False,усмивка=False):
     ellipse(cv,hc[0],hc[1]+2.5,5.0,3.0,SKIN,5.8,extra=0.25)         # двойна брадичка
     ellipse(cv,hc[0],hc[1],7.2,7.2,SKIN,6)                            # по-кръгло лице
+    if not back:
+        кичури(cv,(hc[0],hc[1]-0.5),HAIR)
+        сянка_брадичка(cv,(hc[0],hc[1]+1.5),SHIRT)
     if back:
         ellipse(cv,hc[0],hc[1]-1.0,7.5,6.8,HAIR,6.5,mask=lambda x,y:y<hc[1]+4)
         for y in range(int(hc[1]-1),int(hc[1]+4)):                    # прошарено отзад и отстрани
@@ -107,6 +111,7 @@ def крака_отпред(cv,by,лифт,навън=(0,0)):
     for k,x in enumerate((28.5,35.5)):
         ay=58.5-лифт[k]; nx=x+навън[k]
         capsule(cv,(x,44+by),(nx,ay-1),3.8,2.8,PANT,2,extra=(-0.12 if k else 0))
+        гънка(cv,((x+nx)/2,(44+by+ay)/2),PANT,2)
         for y in range(int(ay-7),int(ay)):                            # черни гайтани долу на крачола
             if y%2: cv.plot(int(nx)+(1 if k else -1),y,BRAID,9,976)
         ellipse(cv,nx+(-0.3 if k==0 else 0.3),ay+1.1,3.0,1.8,SHOE,2.2)

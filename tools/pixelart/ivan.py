@@ -32,6 +32,7 @@ def ръкав(cv,sh,el,hd,z,ex=0.0,шевици=True):
         шевица(cv,(sh[0]*0.55+el[0]*0.45),(sh[1]*0.55+el[1]*0.45)-0.5)
         for k,c in ((0.35,BLUE),(0.6,RED),(0.85,YEL)):              # цветни точки надолу по ръкава
             cv.plot(int(el[0]+(hd[0]-el[0])*k),int(el[1]+(hd[1]-el[1])*k),c,9,978)
+    гънка(cv,el,SHIRT,z)
     ellipse(cv,hd[0],hd[1]+1.3,1.9,1.9,SKIN,z+0.3,extra=-0.1)
 
 def гайтан_извивка(cv,x,y,огледално=False):
@@ -51,6 +52,9 @@ def head_front(cv,hc,back=False,усмивка=False):
     ellipse(cv,hc[0],hc[1],6.6,7.2,SKIN,6)
     # къса тъмна коса с път отстрани
     ellipse(cv,hc[0],hc[1]-1.5,7.0,6.6,HAIR,6.5,mask=(lambda x,y:y<hc[1]+4) if back else (lambda x,y:(y<hc[1]-3.0) or ((x<hc[0]-5.5 or x>hc[0]+5) and y<hc[1]+0.5)))
+    if not back:
+        кичури(cv,hc,HAIR)
+        сянка_брадичка(cv,hc,SHIRT)
     if back:
         return
     ey=int(hc[1]+0.5)
@@ -96,6 +100,7 @@ def крака_отпред(cv,by,лифт,навън=(0,0)):
     for k,x in enumerate((29,35)):
         ay=58.5-лифт[k]; nx=x+навън[k]
         capsule(cv,(x,44+by),(nx,ay-1),3.4,2.6,PANT,2,extra=(-0.12 if k else 0))
+        гънка(cv,((x+nx)/2,(44+by+ay)/2),PANT,2)
         легенче(cv,nx,ay-9,ay-1)
         ellipse(cv,nx+(-0.3 if k==0 else 0.3),ay+1.1,2.8,1.8,SHOE,2.2)
 

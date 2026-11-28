@@ -23,7 +23,7 @@ def rot(p,ang,L):
 def облечи(px):
     """Бродериите: цветни ромбчета на престилката, цветя на деколтето, маншети, подгъв."""
     H,W=len(px),len(px[0])
-    престилка=set(APRON); деколте=set(YOKE); рокля=set(DRESS); ръкав=set(SHIRT); кожа=set(SKIN)
+    престилка=тонове(APRON); деколте=тонове(YOKE); рокля=тонове(DRESS); ръкав=тонове(SHIRT); кожа=тонове(SKIN)
     нов=[ред[:] for ред in px]
     горе_престилка=min([y for y in range(H) for x in range(W) if px[y][x] in престилка] or [0])
     цветове=[RED,ORANGE,GREEN,WHITE]

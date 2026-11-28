@@ -135,6 +135,10 @@
     {"name": "wall", "x": 0, "y": 13},
     {"name": "wall", "x": 31, "y": 11},
     {"name": "wall", "x": 31, "y": 12},
-    {"name": "wall", "x": 31, "y": 13}
+    {"name": "wall", "x": 31, "y": 13},
+    {"name": "barrel", "x": 8, "y": 2},
+    {"name": "cutting_board", "x": 17, "y": 2},
+    {"name": "stove", "x": 19, "y": 2},
+    {"name": "cauldron", "x": 13, "y": 2}
   ]
 }

@@ -13,6 +13,7 @@ import random
 os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 import pygame
+import pix
 
 ИГРА = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 АСЕТИ = os.path.join(ИГРА, "assets")
@@ -61,7 +62,7 @@ class Платно:
         for y in range(с.h):
             for x in range(с.w):
                 if с.п[y][x]:
-                    s.set_at((x, y), с.п[y][x])
+                    s.set_at((x, y), pix.към_палитра(с.п[y][x]))
         return s
 
 

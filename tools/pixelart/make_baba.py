@@ -20,6 +20,7 @@ import pygame
 ИГРА = os.path.dirname(os.path.dirname(ТУК))
 sys.path.insert(0, ТУК)
 import baba
+import pix
 
 
 def към_повърхност(пиксели):
@@ -27,7 +28,7 @@ def към_повърхност(пиксели):
     for y in range(64):
         for x in range(64):
             if пиксели[y][x]:
-                s.set_at((x, y), пиксели[y][x])
+                s.set_at((x, y), pix.към_палитра(пиксели[y][x]))
     return s
 
 

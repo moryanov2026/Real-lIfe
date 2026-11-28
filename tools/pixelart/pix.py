@@ -7,6 +7,23 @@ def hx(h):
 
 LIGHT=(-0.62,-0.78)   # светлината идва горе вляво
 
+# Стил на сенчене (проба от 28.11.2026, по правилата на скила pixel-art-sprites):
+#   "стар" - всеки ръб потъмнява (сенчене "възглавница")
+#   "нов"  - светлина само от горе вляво, сенките отиват към студено (синьо-лилаво),
+#            светлото към топло (жълто), контурът е тъмен вариант на цвета до него.
+СТИЛ="нов"
+ТОПЛО=(255,232,150); СТУДЕНО=(52,40,96)
+
+def _смеси(ц,към,к):
+    return (int(ц[0]+(към[0]-ц[0])*к),int(ц[1]+(към[1]-ц[1])*к),int(ц[2]+(към[2]-ц[2])*к),ц[3] if len(ц)>3 else 255)
+
+_РАМПИ={}
+def рампа(mat):
+    """4-те тона на материала, с хю-шифт: светлото към топло, сенките към студено."""
+    if mat not in _РАМПИ:
+        _РАМПИ[mat]=(_смеси(mat[0],ТОПЛО,0.06),mat[1],_смеси(mat[2],СТУДЕНО,0.10),_смеси(mat[3],СТУДЕНО,0.24))
+    return _РАМПИ[mat]
+
 class Canvas:
     def __init__(s,w=64,h=64):
         s.w,s.h=w,h
@@ -20,8 +37,44 @@ class Canvas:
     def newid(s):
         s.n+=1; return s.n
 
+def тонове(mat):
+    """Всички цветове на материала - старите и новите (за облечи() в baba.py и elena.py)."""
+    return set(mat)|set(рампа(mat))
+
+
+# Обща палитра на играта (data/palitra.json, 64 цвята): в новия стил всеки цвят се заменя
+# с най-близкия от палитрата, когато картинката се записва (към_палитра).
+_ПАЛИТРА=None
+_БЛИЗКИ={}
+def към_палитра(ц):
+    global _ПАЛИТРА
+    if СТИЛ!="нов" or not ц:
+        return ц
+    import os
+    if os.environ.get("BEZ_PALITRA"):          # palitra.py така прави палитрата наново
+        return ц
+    if _ПАЛИТРА is None:
+        import json, os
+        път=os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),"data","palitra.json")
+        _ПАЛИТРА=[tuple(int(c[i:i+2],16) for i in (1,3,5)) for c in json.load(open(път,encoding="utf-8"))["цветове"]] if os.path.exists(път) else []
+    if not _ПАЛИТРА:
+        return ц
+    ключ=tuple(ц[:3])
+    if ключ not in _БЛИЗКИ:
+        # близост с тежести за окото (зеленото се вижда най-силно)
+        # "redmean": близост, каквато я вижда окото (да не става бялото зеленикаво)
+        def разлика(п):
+            r=(п[0]+ц[0])/2
+            return (2+r/256)*(п[0]-ц[0])**2+4*(п[1]-ц[1])**2+(2+(255-r)/256)*(п[2]-ц[2])**2
+        _БЛИЗКИ[ключ]=min(_ПАЛИТРА,key=разлика)
+    п=_БЛИЗКИ[ключ]
+    return (п[0],п[1],п[2],ц[3] if len(ц)>3 else 255)
+
+
 def tone(mat,b):
     # mat = (hi, light, mid, dark)
+    if СТИЛ=="нов":
+        mat=рампа(mat)
     if b>0.50: return mat[0]
     if b>0.08: return mat[1]
     if b>-0.38: return mat[2]
@@ -29,6 +82,11 @@ def tone(mat,b):
 
 def bright(nx,ny,extra=0.0):
     r2=nx*nx+ny*ny
+    if СТИЛ=="нов":
+        # само посоката на светлината: страната към светлината е светла, обратната тъмна;
+        # ръбовете откъм светлината НЕ потъмняват (без "възглавница")
+        d=nx*LIGHT[0]+ny*LIGHT[1]
+        return d*1.05-0.22*max(0.0,r2-0.55)*(1 if d<0 else 0)+0.05+extra
     return (nx*LIGHT[0]+ny*LIGHT[1])*0.9-0.30*r2+extra
 
 def ellipse(cv,cx,cy,rx,ry,mat,z,mask=None,extra=0.0,pid=None):
@@ -80,6 +138,7 @@ def poly(cv,pts,mat,z,extra=0.0,pid=None,folds=()):
 
 def finish(cv,outline,inner=True):
     out=[row[:] for row in cv.col]
+    нов=СТИЛ=="нов"
     for y in range(cv.h):
         for x in range(cv.w):
             if cv.col[y][x] is None:
@@ -92,5 +151,30 @@ def finish(cv,outline,inner=True):
                 for dx,dy in ((1,0),(-1,0),(0,1),(0,-1)):
                     X,Y=x+dx,y+dy
                     if 0<=X<cv.w and 0<=Y<cv.h and cv.part[Y][X] not in (None,cv.part[y][x]) and cv.z[Y][X]<cv.z[y][x]-0.5:
-                        out[y][x]=outline; break
+                        # нов стил: вътрешният контур е тъмен вариант на цвета (selective outline)
+                        out[y][x]=_смеси(cv.col[y][x],СТУДЕНО,0.62) if нов else outline; break
     return out
+
+
+# ---------- детайли за лицата и дрехите (по-жив вид) ----------
+def кичури(cv,hc,коса,z=6.9):
+    """Светли кичури в косата откъм светлината (горе вляво)."""
+    for (dx,dy) in ((-5,-5),(-4,-6),(-2,-7),(-1,-6),(1,-8)):
+        cv.plot(int(hc[0]+dx),int(hc[1]+dy),коса[0],z,991)
+
+def сянка_брадичка(cv,hc,плат,z=5.95):
+    """Главата хвърля сянка върху яката."""
+    for dx in range(-3,4):
+        cv.plot(int(hc[0]+dx),int(hc[1]+8),плат[2],z,992)
+    for dx in range(-2,3):
+        cv.plot(int(hc[0]+dx),int(hc[1]+9),плат[2],z,992)
+
+def сянка_лице(cv,hc,кожа,ey):
+    """Тъмната страна на лицето (вдясно) и под носа."""
+    for y in range(ey-1,ey+4):
+        cv.plot(int(hc[0]+5),y,кожа[2],8.5,993)
+
+def гънка(cv,т,мат,z,дълга=2):
+    """Гънка на лакътя / коляното: две тъмни точици."""
+    for k in range(дълга):
+        cv.plot(int(т[0])+k-1,int(т[1])+(k%2),мат[3],z+0.25,976)

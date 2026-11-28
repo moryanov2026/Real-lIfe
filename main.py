@@ -20,6 +20,7 @@ os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 import pygame
 
 import net
+import poruchki
 import render
 import tiles
 
@@ -98,11 +99,17 @@ class Игра:
         self.бутони = []
         self.преобразувай_мишка = lambda п: п   # прозорецът го сменя (мащаб и отместване)
         self.свирене = None                  # миниигра "Свирене", когато музикантът свири
+        self.готвене = None                  # мини игра при готвенето (gotvene.py)
         self.строене = None                  # режим за строене (B): {"индекс", "вариант", "отместване"}
         self.каталог = []                    # [(име, цена, [варианти])] от data/furniture.json
         self.кам = (0, 0)
         self.известие = None                 # (текст, до кога) - напр. бакшиш след песен
         self.музика_npc = None               # (кой, песен), която чуваме от NPC музиканта
+        self.станции = []                    # мебели, на които се приготвя нещо (от сървъра)
+        try:
+            self.меню = poruchki.зареди()    # data/items.json: за подсказките "E = ..."
+        except (OSError, ValueError):
+            self.меню = {"предмети": {}, "сервират": [], "гости": [], "търпение": 90}
 
     # ---------- свързване ----------
     def играй_сам(self):
@@ -177,6 +184,8 @@ class Игра:
                 self.карта = с["map"]
             elif т == "build_result":
                 self.известие = (с.get("text", ""), time.perf_counter() + (2.0 if с.get("ok") else 3.0))
+            elif т == "use_result":             # E: поръча / приготвя / взе / сервира / причина
+                self.известие = (с.get("text", ""), time.perf_counter() + 2.5)
             elif т == "order_result":           # E при музиканта: засвири / спря / причина
                 self.известие = (с.get("text", ""), time.perf_counter() + 3)
             elif т == "tip":
@@ -192,6 +201,7 @@ class Игра:
     def _ново_състояние(self, с):
         сега = time.perf_counter()
         self.ден, self.минути = с["day"], с["minutes"]
+        self.станции = с.get("stations", [])
         for п in с["persons"]:
             стар = self.персони.get(п["id"])
             нов = dict(self.описания.get(п["id"], {}))
@@ -218,8 +228,8 @@ class Игра:
     def изпрати_вход(self, dx, dy, сега):
         if not self.връзка or self.екран_вид != "игра":
             return
-        if self.свирене:
-            dx = dy = 0                       # докато свири, не ходи
+        if self.свирене or self.готвене:
+            dx = dy = 0                       # докато свири / готви, не ходи
         if (dx, dy) != self.последен_вход or сега - self.време_вход > ИНТЕРВАЛ_ВХОД:
             self.връзка.прати({"t": "input", "dx": dx, "dy": dy})
             self.последен_вход, self.време_вход = (dx, dy), сега
@@ -370,9 +380,13 @@ class Игра:
         if аз and self.моя_роля() == "музикант":
             н = self.шрифт.render("E = свири на кавала    F = седни", True, (255, 230, 150))
             екран.blit(н, (ш - н.get_width() - 12, в - 30))
+        render.нарисувай_поръчки(екран, рисувани, self.станции, кам_x, кам_y, self.меню.get("търпение", 90))
         м = self._музикант_до_мен(рисувани, аз)
-        if м and not self.строене:
+        if м:
             текст = ("E = кажи на %s да спре" if м.get("song") else "E = кажи на %s да свири") % м["name"]
+        else:
+            текст = self._подсказка_e(рисувани, аз)
+        if текст and not self.строене:
             н = self.шрифт.render(текст, True, (255, 230, 150))
             екран.blit(н, (ш - н.get_width() - 12, в - 56))
         if self.строене:
@@ -448,9 +462,18 @@ class Игра:
                 self.връзка.прати({"t": "sit"})
         elif self.екран_вид == "игра" and к == pygame.K_e and self.моя_роля() == "музикант":
             self.започни_свирене()
-        elif self.екран_вид == "игра" and к == pygame.K_e and self.моя_роля() in self._поръчват():
-            if self.връзка:
+        elif self.екран_вид == "игра" and к == pygame.K_e and self.връзка:
+            рисувани = self._рисувани()
+            аз = next((п for п in рисувани if п["id"] == self.мое_id), None)
+            if self._музикант_до_мен(рисувани, аз):
                 self.връзка.прати({"t": "order_song"})   # кажи на музиканта да свири / да спре
+            else:
+                _, действие, предмет = self._какво_прави_e(рисувани, аз)
+                if действие == "cook":                   # приготвяне: мини игра (gotvene.py)
+                    import gotvene
+                    self.готвене = gotvene.Готвене(предмет)   # избор на ястие, после рецептата стъпка по стъпка
+                else:
+                    self.връзка.прати({"t": "use"})      # поръчай / вземи / сервирай
         return True
 
     # ---------- режим за строене (B) ----------
@@ -566,6 +589,77 @@ class Игра:
     # ---------- миниигра "Свирене" ----------
     def моя_роля(self):
         return self.описания.get(self.мое_id, {}).get("role", "")
+
+    def _подсказка_e(self, рисувани, аз):
+        return self._какво_прави_e(рисувани, аз)[0]
+
+    def миниигра(self):
+        return self.свирене or self.готвене
+
+    def обнови_готвене(self):
+        """Вика се всеки кадър; когато мини играта при готвенето свърши, казва на сървъра."""
+        if not self.готвене:
+            return
+        self.готвене.обнови()
+        if self.готвене.край:
+            if self.готвене.резултат and self.връзка:
+                self.връзка.прати({"t": "cook", "item": self.готвене.резултат["item"],
+                                   "quality": self.готвене.резултат["quality"]})
+            self.готвене = None
+
+    def _какво_прави_e(self, рисувани, аз):
+        """Какво ще направи E точно сега: (подсказка, "cook"/"use"/None, предмет)."""
+        т = self._какво_прави_e_текст(рисувани, аз)
+        return т if isinstance(т, tuple) else (т, None, None)
+
+    def _какво_прави_e_текст(self, рисувани, аз):
+        if not аз or self.моя_роля() == "музикант":
+            return ""
+        предмети = self.меню.get("предмети", {})
+        име = lambda к: предмети.get(к, {}).get("име", к)
+        роля = self.моя_роля()
+        if poruchki.гост(роля, self.меню):
+            if аз.get("want"):
+                return "Чакаш: %s" % име(аз["want"])
+            if аз.get("sit") and not аз.get("eat"):
+                return "E = поръчай"
+            return ""
+        if роля not in self.меню.get("сервират", []):
+            return ""
+        if аз.get("hold"):
+            for п in рисувани:
+                if (п.get("want") == аз["hold"] and п.get("sit")
+                        and ((п["x"] - аз["x"]) ** 2 + (п["y"] - аз["y"]) ** 2) ** 0.5 <= poruchki.ДО_ГОСТ):
+                    return "E = сервирай на %s" % п["name"]
+            return "Носиш: %s - занеси го на госта, който го иска" % име(аз["hold"])
+        if not self.карта:
+            return ""
+        готови = {(с["x"], с["y"]): с for с in self.станции}
+        близки = sorted((poruchki.до_станция(аз["x"], аз["y"], x, y), x, y, предмет)
+                        for (x, y, _, предмет) in poruchki.станции_на_карта(self.карта, self.меню))
+        близки = [б for б in близки if б[0] <= poruchki.ДО_СТАНЦИЯ]
+        if not близки:
+            return ""
+        for _, x, y, предмет in близки:
+            с = готови.get((x, y))
+            if с and с.get("ready"):
+                return "E = вземи %s" % име(с["item"]).lower()
+        искани = {п.get("want") for п in рисувани if п.get("want") and п.get("sit")}
+        свободни = [б for б in близки if (б[1], б[2]) not in готови]
+        мои = [б for б in свободни if роля in предмети.get(б[3], {}).get("кой", [])]
+        мои.sort(key=lambda б: (б[3] not in искани, б[0]))           # първо това, което гостите чакат
+        if мои:                                                    # всичко, което мога да сготвя тук
+            избор = []
+            for б in мои:
+                if б[3] not in [и[0] for и in избор]:
+                    избор.append((б[3], име(б[3]), б[3] in искани))
+            if len(избор) == 1:
+                return ("E = приготви %s" % име(избор[0][0]).lower(), "cook", избор)
+            return ("E = готви (%s)" % ", ".join(и[1].lower() for и in избор), "cook", избор)
+        if свободни:
+            предмет = свободни[0][3]
+            return "%s го приготвя %s" % (име(предмет), " или ".join(предмети[предмет]["кой"]))
+        return "Приготвя се: %s" % име(готови[(близки[0][1], близки[0][2])]["item"]).lower()
 
     def _поръчват(self):
         import world
@@ -778,12 +872,12 @@ def главна():
                     покажи_fps = not покажи_fps
                 elif с.key == pygame.K_F11 or (с.key == pygame.K_RETURN and с.mod & pygame.KMOD_ALT):
                     прозорец.смени_цял_екран()
-                elif игра.свирене:
-                    игра.свирене.клавиш(с)
+                elif игра.миниигра():
+                    игра.миниигра().клавиш(с)
                 elif not игра.клавиш(с):
                     работи = False
-            elif с.type == pygame.KEYUP and игра.свирене:
-                игра.свирене.клавиш(с)
+            elif с.type == pygame.KEYUP and игра.миниигра():
+                игра.миниигра().клавиш(с)
             elif с.type == pygame.MOUSEBUTTONDOWN and с.button == 1:
                 игра.клик(прозорец.мишка(с.pos))
             elif с.type == pygame.MOUSEBUTTONDOWN and с.button == 3:
@@ -796,10 +890,11 @@ def главна():
         dy = (к[pygame.K_s] or к[pygame.K_DOWN]) - (к[pygame.K_w] or к[pygame.K_UP])
         игра.изпрати_вход(dx, dy, сега)
         игра.обнови_свирене()
+        игра.обнови_готвене()
         игра.обнови_музика_npc()
-        if игра.свирене:
+        if игра.миниигра():
             екран = прозорец.подготви("свирене")
-            игра.свирене.нарисувай(екран)
+            игра.миниигра().нарисувай(екран)
         else:
             екран = прозорец.подготви(игра.екран_вид)
             игра.нарисувай(екран, покажи_fps, часовник.get_fps())
